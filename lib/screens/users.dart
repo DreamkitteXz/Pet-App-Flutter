@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:pet_app/authentication/logout.dart';
-import 'package:pet_app/screens/login.dart';
 import 'package:pet_app/screens/regitro_page.dart';
 
 class UsersDetails extends StatelessWidget {

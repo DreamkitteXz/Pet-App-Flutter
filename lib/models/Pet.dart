@@ -20,14 +20,14 @@ class Pet {
   });
 
   Pet.fromMap(Map<String, dynamic> map)
-      : id = map["Id"],
-        name = map["Name"],
-        raca = map["Raça"],
-        sexo = map["Sexo"],
-        cor = map["Cor"],
-        dataNasc = map["Data de Nascemento"],
-        isInteiro = map["Intero ou Castrado"],
-        chip = map["Numero de Chip"];
+      : id = map["Pet Id"] ?? '',
+        name = map["Nome do pet"] ?? '',
+        raca = map["Raca"] ?? '',
+        sexo = map["Sexo"] ?? '',
+        cor = map["Cor"] ?? '',
+        dataNasc = map["Data de Nascemento"] ?? '',
+        isInteiro = map["Inteiro ou Castrado"] ?? '',
+        chip = map["Numero do Chip"] ?? '';
 
   Map<String, dynamic> toMap() {
     return {
