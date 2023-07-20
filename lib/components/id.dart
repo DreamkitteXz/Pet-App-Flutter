@@ -1,12 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:pet_app/screens/regitro_page.dart';
+import 'package:pet_app/screens/create_account/regitro_page.dart';
 import 'package:uuid/uuid.dart';
 
 String petID = '';
+String vacID = '';
 
 String gerarPetID() {
   return petID = const Uuid().v4().trim();
+}
+
+String gerarVacID() {
+  return vacID = const Uuid().v1().trim();
 }
 
 Future addUserdatalhes(

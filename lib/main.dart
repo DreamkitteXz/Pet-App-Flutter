@@ -1,9 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:pet_app/screens/home_screen.dart';
+import 'package:pet_app/screens/Pet/home_screen.dart';
 import 'package:pet_app/screens/users.dart';
-import 'package:pet_app/screens/vacinas.dart';
-import 'screens/regitro_page.dart';
+import 'screens/create_account/regitro_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -29,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const RoteadorTelas(),
+      home: CadastroPet(),
     );
   }
 }

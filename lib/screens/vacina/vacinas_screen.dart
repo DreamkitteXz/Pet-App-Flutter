@@ -1,46 +1,48 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:pet_app/models/Pet.dart';
-import 'package:pet_app/screens/pet_screen.dart';
-import 'package:pet_app/screens/users.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:pet_app/components/id.dart';
+import 'package:pet_app/models/vacinas.dart';
 
-import '../components/id.dart';
-import '../models/show_form_model.dart';
+class VacinasPet extends StatelessWidget {
+  final String? petId;
+  const VacinasPet({this.petId});
 
-class CadastroPet extends StatefulWidget {
-  const CadastroPet({Key? key}) : super(key: key);
-
-  @override
-  State<CadastroPet> createState() => _CadastroPetState();
-}
-
-class _CadastroPetState extends State<CadastroPet> {
-  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  Future cadastroVacinas(
+      String nome,
+      String id,
+      String tipo,
+      String dataAplicacao,
+      String proximaAplicacao,
+      String pesoAplicacao) async {
+    await FirebaseFirestore.instance
+        .collection("Users")
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .collection("Pets")
+        .doc(petId)
+        .collection("Vacinas")
+        .doc(id)
+        .set({
+      "Id": id,
+      "Nome da vacina": nome,
+      "Data Aplicada": dataAplicacao,
+      "Peso do Pet": pesoAplicacao,
+      "Tipo": tipo,
+      "Próxima aplicação": proximaAplicacao,
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Pets"),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.account_circle_rounded),
-            tooltip: 'Comment',
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => UsersDetails(),
-                ),
-              );
-            },
-          ),
-        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          showFormModal(context);
+          //showFormModal(context);
         },
         child: const Icon(Icons.add),
       ),
@@ -49,25 +51,27 @@ class _CadastroPetState extends State<CadastroPet> {
             .collection('Users')
             .doc(FirebaseAuth.instance.currentUser!.uid)
             .collection('Pets')
+            .doc(petId)
+            .collection("Vacinas")
             .snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (!snapshot.hasData) {
             return const Text("Nenhum pet cadastrado ainda.");
           }
 
-          List<Pet> listPet = snapshot.data!.docs.map((document) {
+          List<Vacinas> listVac = snapshot.data!.docs.map((document) {
             Map<String, dynamic> data = document.data() as Map<String, dynamic>;
             print(data);
-            return Pet.fromMap(data);
+            return Vacinas.fromMap(data);
           }).toList();
 
           return ListView.builder(
-            itemCount: listPet.length,
+            itemCount: listVac.length,
             itemBuilder: (context, index) {
-              Pet model = listPet[index];
-              print(model.isInteiro);
+              Vacinas model = listVac[index];
+              print(model.dataAplicada);
               return Dismissible(
-                key: ValueKey<Pet>(model),
+                key: ValueKey<Vacinas>(model),
                 direction: DismissDirection.endToStart,
                 background: Container(
                   color: Colors.red,
@@ -76,18 +80,12 @@ class _CadastroPetState extends State<CadastroPet> {
                   child: const Icon(Icons.delete, color: Colors.white),
                 ),
                 onDismissed: (direction) {
-                  remove(model);
+                  //remove(model);
                 },
                 child: ListTile(
                   leading: const Icon(Icons.list_alt_rounded),
                   title: Text(model.name),
-                  subtitle: Text(model.raca),
-                  onTap: (() => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => PetDetalhes(pet: model),
-                        ),
-                      )),
+                  subtitle: Text(model.tipo),
                 ),
               );
             },
@@ -95,14 +93,6 @@ class _CadastroPetState extends State<CadastroPet> {
         },
       ),
     );
-  }
-
-  void remove(Pet model) {
-    firestore
-        .collection("Users")
-        .doc(FirebaseAuth.instance.currentUser!.uid)
-        .collection("Pets")
-        .doc(model.id)
-        .delete();
+    ;
   }
 }

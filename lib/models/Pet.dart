@@ -28,6 +28,7 @@ class Pet {
         dataNasc = map["Data de Nascemento"] ?? '',
         isInteiro = map["Inteiro ou Castrado"] ?? '',
         chip = map["Numero do Chip"] ?? '';
+  //Adicionar o peso do Pet
 
   Map<String, dynamic> toMap() {
     return {
