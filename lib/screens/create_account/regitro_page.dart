@@ -4,6 +4,7 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:pet_app/components/id.dart';
 import 'package:pet_app/authentication/component/show_snackbar.dart';
 
+import '../Pet/home_screen.dart';
 import 'flutter_flow_theme.dart';
 import 'flutter_flow_widgets.dart';
 
@@ -675,6 +676,11 @@ class _RegistroPageState extends State<RegistroPage> {
                       child: FFButtonWidget(
                         onPressed: () {
                           signIn();
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CadastroPet(),
+                              ));
                         },
                         text: 'Crie sua conta',
                         options: FFButtonOptions(

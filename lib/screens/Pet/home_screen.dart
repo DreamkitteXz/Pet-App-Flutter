@@ -20,7 +20,7 @@ class _CadastroPetState extends State<CadastroPet> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF1F4F8),
+      backgroundColor: Colors.white,
       //========================================================================
       //FAB
 

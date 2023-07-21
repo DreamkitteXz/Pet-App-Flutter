@@ -5,6 +5,7 @@ import 'package:uuid/uuid.dart';
 
 String petID = '';
 String vacID = '';
+String verID = '';
 
 String gerarPetID() {
   return petID = const Uuid().v4().trim();
@@ -12,6 +13,10 @@ String gerarPetID() {
 
 String gerarVacID() {
   return vacID = const Uuid().v1().trim();
+}
+
+String gerarVerID() {
+  return verID = const Uuid().v1().trim();
 }
 
 Future addUserdatalhes(
