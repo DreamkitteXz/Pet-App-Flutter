@@ -1,8 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:pet_app/screens/vacina/vacinas_screen.dart';
 
 import '../../components/id.dart';
 
 class AddVacinaScreen extends StatefulWidget {
+  final String? petId;
+
+  AddVacinaScreen({required this.petId});
+
   @override
   _AddVacinaScreenState createState() => _AddVacinaScreenState();
 }
@@ -14,6 +21,30 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
   final dataAplicadaController = TextEditingController();
   final pesoController = TextEditingController();
   final proximaAplicacaoController = TextEditingController();
+
+  Future cadastroVacinas(
+      String nome,
+      String id,
+      String tipo,
+      String dataAplicacao,
+      String proximaAplicacao,
+      String pesoAplicacao) async {
+    await FirebaseFirestore.instance
+        .collection("Users")
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .collection("Pets")
+        .doc(widget.petId)
+        .collection("Vacinas")
+        .doc(id)
+        .set({
+      "Id": id,
+      "Nome da vacina": nome,
+      "Data Aplicada": dataAplicacao,
+      "Peso do Pet": pesoAplicacao,
+      "Tipo": tipo,
+      "Próxima aplicação": proximaAplicacao,
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,9 +97,13 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
                 SizedBox(width: 16),
                 ElevatedButton(
                   onPressed: () {
-                    // Chama a função para cadastrar a vacina
-
-                    // Fecha o modal após o cadastro
+                    cadastroVacinas(
+                        nameController.text.trim(),
+                        gerarVacID(),
+                        tipoController.text.trim(),
+                        dataAplicadaController.text.trim(),
+                        proximaAplicacaoController.text.trim(),
+                        pesoController.text.trim());
                     Navigator.pop(context);
                   },
                   child: Text("Salvar"),

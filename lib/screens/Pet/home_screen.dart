@@ -2,13 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_app/models/Pet.dart';
-import 'pet_screen.dart';
-import 'package:pet_app/screens/users.dart';
+import 'package:pet_app/screens/Pet/pet_screen.dart';
 
-import '../../components/id.dart';
 import '../../models/show_form_model.dart';
 import '../create_account/flutter_flow_theme.dart';
-import '../create_account/flutter_flow_widgets.dart';
 
 class CadastroPet extends StatefulWidget {
   const CadastroPet({Key? key}) : super(key: key);
@@ -23,6 +20,7 @@ class _CadastroPetState extends State<CadastroPet> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF1F4F8),
       //========================================================================
       //FAB
 
@@ -45,43 +43,63 @@ class _CadastroPetState extends State<CadastroPet> {
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16, 32, 16, 12),
-            child: Row(
+          Container(
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 4,
+                  color: Color(0x33000000),
+                  offset: Offset(0, 2),
+                )
+              ],
+            ),
+            child: Column(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(12, 12, 0, 0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Meus pets',
-                          style: FlutterFlowTheme.of(context)
-                              .headlineMedium
-                              .override(
-                                fontFamily: 'Outfit',
-                                color: Color(0xFF15161E),
-                                fontSize: 24,
-                                fontWeight: FontWeight.w500,
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(16, 32, 16, 12),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              12, 12, 0, 0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Meus pets',
+                                style: FlutterFlowTheme.of(context)
+                                    .headlineMedium
+                                    .override(
+                                      fontFamily: 'Outfit',
+                                      color: Color(0xFF15161E),
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                               ),
+                              Text(
+                                'Seus pets cadastrados estão logo abaixo',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'Outfit',
+                                      color: Color(0xFF14181B),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                              )
+                            ],
+                          ),
                         ),
-                        Text(
-                          'Seus pets cadastrados estão logo abaixo',
-                          style:
-                              FlutterFlowTheme.of(context).bodySmall.override(
-                                    fontFamily: 'Outfit',
-                                    color: Color(0xFF14181B),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -133,113 +151,132 @@ class _CadastroPetState extends State<CadastroPet> {
                           onDismissed: (direction) {
                             remove(model);
                           },
-                          child: Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: 100,
-                            // Other properties for the Container...
-
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: 3,
-                                  color: Color(0x411D2429),
-                                  offset: Offset(0, 1),
-                                )
-                              ],
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                            child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 1, 1, 1),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(12),
-                                      child: Image.network(
-                                        'https://images.unsplash.com/photo-1543466835-00a7907e9de1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHxkb2d8ZW58MHx8fHwxNjg5ODY1OTY3fDA&ixlib=rb-4.0.3&q=80&w=1080',
-                                        width: 70,
-                                        height: 100,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
+                          child: GestureDetector(
+                            onTap: (() => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        PetDetalhes(pet: model),
                                   ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          8, 8, 4, 0),
-                                      child: Column(
+                                )),
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width,
+                                height: 100,
+                                // Other properties for the Container...
+
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 3,
+                                      color: Color(0x411D2429),
+                                      offset: Offset(0, 1),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      8, 8, 8, 8),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 1, 1, 1),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                          child: Image.network(
+                                            'https://images.unsplash.com/photo-1543466835-00a7907e9de1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHxkb2d8ZW58MHx8fHwxNjg5ODY1OTY3fDA&ixlib=rb-4.0.3&q=80&w=1080',
+                                            width: 70,
+                                            height: 100,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8, 8, 4, 0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                model.name,
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleMedium
+                                                    .override(
+                                                      fontFamily: 'Readex Pro',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .customColor4,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
+                                              ),
+                                              Flexible(
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(0, 4, 8, 0),
+                                                  child: Text(
+                                                    model.raca,
+                                                    textAlign: TextAlign.start,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodySmall,
+                                                  ),
+                                                ),
+                                              ),
+                                              Flexible(
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(0, 4, 8, 0),
+                                                  child: Text(
+                                                    model.sexo,
+                                                    textAlign: TextAlign.start,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodySmall,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      Column(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                            MainAxisAlignment.spaceEvenly,
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                            CrossAxisAlignment.end,
                                         children: [
-                                          Text(
-                                            model.name,
-                                            style: FlutterFlowTheme.of(context)
-                                                .titleMedium
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .customColor4,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
-                                          ),
-                                          Flexible(
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 4, 8, 0),
-                                              child: Text(
-                                                model.raca,
-                                                textAlign: TextAlign.start,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall,
-                                              ),
-                                            ),
-                                          ),
-                                          Flexible(
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 4, 8, 0),
-                                              child: Text(
-                                                model.sexo,
-                                                textAlign: TextAlign.start,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall,
-                                              ),
+                                          const Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 4, 0, 0),
+                                            child: Icon(
+                                              Icons.chevron_right_rounded,
+                                              color: Color(0xFF57636C),
+                                              size: 24,
                                             ),
                                           ),
                                         ],
                                       ),
-                                    ),
-                                  ),
-                                  Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
-                                        child: Icon(
-                                          Icons.chevron_right_rounded,
-                                          color: Color(0xFF57636C),
-                                          size: 24,
-                                        ),
-                                      ),
                                     ],
                                   ),
-                                ],
+                                ),
                               ),
                             ),
                           ));
@@ -256,6 +293,8 @@ class _CadastroPetState extends State<CadastroPet> {
       ),
     );
   }
+
+//Remover o Pet
 
   void remove(Pet model) {
     firestore

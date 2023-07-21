@@ -1,10 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:pet_app/screens/Pet/home_screen.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:uuid/uuid.dart';
-import 'package:pet_app/models/Pet.dart';
 import 'package:pet_app/components/id.dart';
 import 'package:pet_app/authentication/component/show_snackbar.dart';
 

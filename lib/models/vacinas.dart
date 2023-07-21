@@ -1,10 +1,10 @@
 class Vacinas {
   String id;
   String name;
-  String? dataAplicada;
-  String? proximaAplicacao;
+  String dataAplicada;
+  String proximaAplicacao;
   String tipo;
-  String? pesoDataAplicacao;
+  String pesoDataAplicacao;
 
   Vacinas({
     required this.id,
