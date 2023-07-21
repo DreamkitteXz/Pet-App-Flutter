@@ -17,7 +17,7 @@ class Vacinas {
 
   Vacinas.fromMap(Map<String, dynamic> map)
       : id = map["Id"] ?? '',
-        name = map["Name"] ?? '',
+        name = map["Nome da vacina"] ?? '',
         dataAplicada = map["Data Aplicada"] ?? '',
         pesoDataAplicacao = map["Peso do Pet"] ?? '',
         tipo = map["Tipo"] ?? '',
@@ -26,7 +26,7 @@ class Vacinas {
   Map<String, dynamic> toMap() {
     return {
       "Id": id,
-      "Nome da Vacina": name,
+      "Nome da vacina": name,
       "Data Aplicada": dataAplicada,
       "Peso do Pet": pesoDataAplicacao,
       "Tipo": tipo,

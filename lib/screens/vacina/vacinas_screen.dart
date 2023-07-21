@@ -7,6 +7,7 @@ import 'package:pet_app/components/id.dart';
 import 'package:pet_app/models/vacinas.dart';
 import 'package:pet_app/screens/vacina/add_vacinas_screen.dart';
 
+import '../create_account/flutter_flow_icon_button.dart';
 import '../create_account/flutter_flow_theme.dart';
 
 class VacinasPet extends StatelessWidget {
@@ -16,8 +17,28 @@ class VacinasPet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF1F4F8),
       appBar: AppBar(
-        title: const Text("Pets"),
+        title: Text('Vacinas'),
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        automaticallyImplyLeading: false,
+        leading: FlutterFlowIconButton(
+          borderColor: Colors.transparent,
+          borderRadius: 30,
+          borderWidth: 1,
+          buttonSize: 60,
+          icon: Icon(
+            Icons.arrow_back_rounded,
+            color: FlutterFlowTheme.of(context).secondaryText,
+            size: 30,
+          ),
+          onPressed: () async {
+            Navigator.pop(context);
+          },
+        ),
+        actions: [],
+        centerTitle: true,
+        elevation: 0,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -46,7 +67,7 @@ class VacinasPet extends StatelessWidget {
             .snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (!snapshot.hasData) {
-            return const Text("Nenhum pet cadastrado ainda.");
+            return const Text("Nenhuma vacina cadastrada ainda.");
           }
 
           List<Vacinas> listVac = snapshot.data!.docs.map((document) {
@@ -59,7 +80,7 @@ class VacinasPet extends StatelessWidget {
             itemCount: listVac.length,
             itemBuilder: (context, index) {
               Vacinas model = listVac[index];
-              print(model.dataAplicada);
+              print(model.name);
               return Dismissible(
                   key: ValueKey<Vacinas>(model),
                   direction: DismissDirection.endToStart,
@@ -74,7 +95,7 @@ class VacinasPet extends StatelessWidget {
                   },
                   child: GestureDetector(
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
+                      padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
                       child: Container(
                         width: MediaQuery.of(context).size.width,
                         height: 100,
@@ -99,18 +120,11 @@ class VacinasPet extends StatelessWidget {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 1, 1, 1),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(12),
-                                  child: Image.network(
-                                    'https://images.unsplash.com/photo-1543466835-00a7907e9de1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHxkb2d8ZW58MHx8fHwxNjg5ODY1OTY3fDA&ixlib=rb-4.0.3&q=80&w=1080',
-                                    width: 70,
-                                    height: 100,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 1, 1, 1),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(12),
+                                  )),
                               Expanded(
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
