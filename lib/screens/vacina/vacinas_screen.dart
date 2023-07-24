@@ -91,7 +91,7 @@ class VacinasPet extends StatelessWidget {
                     child: const Icon(Icons.delete, color: Colors.white),
                   ),
                   onDismissed: (direction) {
-                    //remove(model);
+                    remove(model);
                   },
                   child: GestureDetector(
                     child: Padding(
@@ -206,5 +206,16 @@ class VacinasPet extends StatelessWidget {
       ),
     );
     ;
+  }
+
+  void remove(Vacinas model) {
+    FirebaseFirestore.instance
+        .collection("Users")
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .collection("Pets")
+        .doc(petId)
+        .collection("Vacinas")
+        .doc(model.id)
+        .delete();
   }
 }

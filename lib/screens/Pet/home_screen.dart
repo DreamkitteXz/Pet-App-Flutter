@@ -188,21 +188,37 @@ class _CadastroPetState extends State<CadastroPet> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 1, 1, 1),
                                         child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(12),
-                                          child: Image.network(
-                                            'https://images.unsplash.com/photo-1543466835-00a7907e9de1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHxkb2d8ZW58MHx8fHwxNjg5ODY1OTY3fDA&ixlib=rb-4.0.3&q=80&w=1080',
-                                            width: 70,
-                                            height: 100,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
+                                            borderRadius:
+                                                BorderRadius.circular(12),
+                                            child: // Generated code for this Container Widget...
+                                                Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0, 1, 1, 1),
+                                              child: Container(
+                                                width: 70,
+                                                height: 100,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .lineColor,
+                                                  borderRadius:
+                                                      BorderRadius.circular(12),
+                                                ),
+                                                child: Icon(
+                                                  Icons.pets_rounded,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  size: 24,
+                                                ),
+                                              ),
+                                            )),
                                       ),
                                       Expanded(
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  8, 8, 4, 0),
+                                                  8, 0, 4, 0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:

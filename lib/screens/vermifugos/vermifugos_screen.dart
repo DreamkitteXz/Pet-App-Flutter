@@ -94,7 +94,7 @@ class VermifugoPet extends StatelessWidget {
                     child: const Icon(Icons.delete, color: Colors.white),
                   ),
                   onDismissed: (direction) {
-                    //remove(model);
+                    remove(model);
                   },
                   child: GestureDetector(
                     child: Padding(
@@ -209,5 +209,16 @@ class VermifugoPet extends StatelessWidget {
       ),
     );
     ;
+  }
+
+  void remove(Vermifugos model) {
+    FirebaseFirestore.instance
+        .collection("Users")
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .collection("Pets")
+        .doc(petId)
+        .collection("Vermifugos")
+        .doc(model.id)
+        .delete();
   }
 }

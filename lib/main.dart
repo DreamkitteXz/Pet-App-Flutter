@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:pet_app/screens/Login/login.dart';
 import 'package:pet_app/screens/Pet/home_screen.dart';
 import 'package:pet_app/screens/users.dart';
 import 'screens/create_account/regitro_page.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: RoteadorTelas(),
+      home: RegistroPage(),
     );
   }
 }
