@@ -80,7 +80,7 @@ class VacinasPet extends StatelessWidget {
             itemCount: listVac.length,
             itemBuilder: (context, index) {
               Vacinas model = listVac[index];
-              print(model.name);
+              print(model.vacina);
               return Dismissible(
                   key: ValueKey<Vacinas>(model),
                   direction: DismissDirection.endToStart,
@@ -136,7 +136,7 @@ class VacinasPet extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        model.name,
+                                        model.vacina,
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .override(

@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:pet_app/screens/create_account/regitro_page.dart';
 import 'package:uuid/uuid.dart';
 
 String petID = '';
@@ -50,8 +49,16 @@ Future addUserdatalhes(
   });
 }
 
-Future cadastroPet(String idPet, String name, String raca, String sexo,
-    String cor, String dataNasc, String isInteiro, String chip) async {
+Future cadastroPet(
+    String idPet,
+    String name,
+    String tipo,
+    String raca,
+    String sexo,
+    String cor,
+    String dataNasc,
+    String isInteiro,
+    String chip) async {
   await FirebaseFirestore.instance
       .collection("Users")
       .doc(FirebaseAuth.instance.currentUser!.uid)
@@ -60,6 +67,7 @@ Future cadastroPet(String idPet, String name, String raca, String sexo,
       .set({
     "Pet Id": idPet,
     "Nome do pet": name,
+    "Tipo": tipo,
     "Raca": raca,
     "Sexo": sexo,
     "Cor": cor,

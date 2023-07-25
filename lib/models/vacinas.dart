@@ -1,36 +1,39 @@
 class Vacinas {
   String id;
-  String name;
+  String vacina;
   String dataAplicada;
   String proximaAplicacao;
-  String tipo;
   String pesoDataAplicacao;
+  String nomeVet;
+  String crmv;
 
-  Vacinas({
-    required this.id,
-    required this.name,
-    required this.dataAplicada,
-    required this.proximaAplicacao,
-    required this.tipo,
-    required this.pesoDataAplicacao,
-  });
+  Vacinas(
+      {required this.id,
+      required this.vacina,
+      required this.dataAplicada,
+      required this.proximaAplicacao,
+      required this.pesoDataAplicacao,
+      required this.nomeVet,
+      required this.crmv});
 
   Vacinas.fromMap(Map<String, dynamic> map)
       : id = map["Id"] ?? '',
-        name = map["Nome da vacina"] ?? '',
+        vacina = map["Vacina"] ?? '',
         dataAplicada = map["Data Aplicada"] ?? '',
         pesoDataAplicacao = map["Peso do Pet"] ?? '',
-        tipo = map["Tipo"] ?? '',
-        proximaAplicacao = map["Próxima aplicação"] ?? '';
+        proximaAplicacao = map["Próxima aplicação"] ?? '',
+        nomeVet = map["Nome do Veterinário(a)"] ?? '',
+        crmv = map["CRMV do Veterinário(a)"] ?? '';
 
   Map<String, dynamic> toMap() {
     return {
       "Id": id,
-      "Nome da vacina": name,
+      "Vacina": vacina,
       "Data Aplicada": dataAplicada,
       "Peso do Pet": pesoDataAplicacao,
-      "Tipo": tipo,
       "Próxima aplicação": proximaAplicacao,
+      "Nome do Veterinário(a)": nomeVet,
+      "CRMV do Veterinário(a)": crmv,
     };
   }
 }

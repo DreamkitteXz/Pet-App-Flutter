@@ -7,8 +7,7 @@ import 'package:pet_app/components/id.dart';
 import 'package:pet_app/models/vacinas.dart';
 import 'package:pet_app/models/vermifugos.dart';
 import 'package:pet_app/screens/vacina/add_vacinas_screen.dart';
-import 'add_vermifugos_screen.dart';
-import 'package:pet_app/models/vermifugos.dart';
+import 'package:pet_app/screens/vermifugos/add_vermifugos_screen.dart';
 
 import '../create_account/flutter_flow_icon_button.dart';
 import '../create_account/flutter_flow_theme.dart';
@@ -22,7 +21,7 @@ class VermifugoPet extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFF1F4F8),
       appBar: AppBar(
-        title: Text('Vermifugos'),
+        title: Text('Vermífugos'),
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
@@ -70,7 +69,7 @@ class VermifugoPet extends StatelessWidget {
             .snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (!snapshot.hasData) {
-            return const Text("Nenhum vermifugo cadastrado ainda.");
+            return const Text("Nenhuma vacina cadastrada ainda.");
           }
 
           List<Vermifugos> listVer = snapshot.data!.docs.map((document) {
@@ -83,7 +82,7 @@ class VermifugoPet extends StatelessWidget {
             itemCount: listVer.length,
             itemBuilder: (context, index) {
               Vermifugos model = listVer[index];
-              print(model.name);
+              print(model.vermifugo);
               return Dismissible(
                   key: ValueKey<Vermifugos>(model),
                   direction: DismissDirection.endToStart,
@@ -139,7 +138,7 @@ class VermifugoPet extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        model.name,
+                                        model.vermifugo,
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .override(
@@ -156,7 +155,7 @@ class VermifugoPet extends StatelessWidget {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 4, 8, 0),
                                           child: Text(
-                                            model.dataInicio,
+                                            model.primeiraDose,
                                             textAlign: TextAlign.start,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall,
@@ -169,7 +168,7 @@ class VermifugoPet extends StatelessWidget {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 4, 8, 0),
                                           child: Text(
-                                            model.dataFinal,
+                                            model.primeiraDose,
                                             textAlign: TextAlign.start,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall,
@@ -217,7 +216,7 @@ class VermifugoPet extends StatelessWidget {
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .collection("Pets")
         .doc(petId)
-        .collection("Vermifugos")
+        .collection("Vacinas")
         .doc(model.id)
         .delete();
   }

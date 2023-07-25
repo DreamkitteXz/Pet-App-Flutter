@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:pet_app/components/id.dart';
 import 'package:pet_app/authentication/component/show_snackbar.dart';
-import 'package:flutter_typeahead/flutter_typeahead.dart';
+import 'package:email_validator/email_validator.dart';
 
 import '../Pet/home_screen.dart';
 import 'flutter_flow_theme.dart';
@@ -61,6 +61,22 @@ class _RegistroPageState extends State<RegistroPage> {
   }
 
   bool _passwordVisible = false;
+
+  bool _isPasswordEightCharacters = false;
+  bool _hasPasswordOneNumber = false;
+
+  onPasswordChanged(String password) {
+    final numericRegex = RegExp(r'[0-9]');
+
+    setState(() {
+      _isPasswordEightCharacters = false;
+      if (password.length >= 8) _isPasswordEightCharacters = true;
+
+      _hasPasswordOneNumber = false;
+      if (numericRegex.hasMatch(password)) _hasPasswordOneNumber = true;
+    });
+  }
+
   void initState() {
     _passwordVisible = false;
   }
@@ -163,7 +179,12 @@ class _RegistroPageState extends State<RegistroPage> {
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyLarge,
-                          // validator: _complementoController.textController1Validator.asValidator(context),
+                          validator: (String? value) {
+                            if (value != null && value.isEmpty) {
+                              return 'Insira o Nome';
+                            }
+                            return null;
+                          },
                         ),
                       ),
 
@@ -210,7 +231,20 @@ class _RegistroPageState extends State<RegistroPage> {
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyLarge,
-                          // validator: _complementoController.textController1Validator.asValidator(context),
+                          validator: (value) {
+                            if (value != null && value.isEmpty) {
+                              return 'Insira o E-mail';
+                            }
+                            if (value != null && value.isEmpty) {
+                              return 'Insira o E-mail';
+                            }
+                            // Utilizando a função EmailValidator.validate do pacote email_validator
+                            if (value != null &&
+                                !EmailValidator.validate(value)) {
+                              return 'E-mail inválido';
+                            }
+                            return null;
+                          },
                         ),
                       ),
 
@@ -279,47 +313,57 @@ class _RegistroPageState extends State<RegistroPage> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                         child: TextFormField(
-                          controller: _telefoneController,
-                          inputFormatters: [
-                            MaskTextInputFormatter(mask: '(##) # ####-####')
-                          ],
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            labelText: 'Telefone',
-                            hintStyle: FlutterFlowTheme.of(context).bodyLarge,
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                width: 2,
+                            controller: _telefoneController,
+                            inputFormatters: [
+                              MaskTextInputFormatter(mask: '(##) # ####-####')
+                            ],
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              labelText: 'Telefone',
+                              hintStyle: FlutterFlowTheme.of(context).bodyLarge,
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  width: 2,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
                               ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0x00000000),
-                                width: 2,
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 2,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
                               ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0x00000000),
-                                width: 2,
+                              errorBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 2,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
                               ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0x00000000),
-                                width: 2,
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 2,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
                               ),
-                              borderRadius: BorderRadius.circular(12),
                             ),
-                          ),
-                          style: FlutterFlowTheme.of(context).bodyLarge,
-                          // validator: _complementoController.textController1Validator.asValidator(context),
-                        ),
+                            style: FlutterFlowTheme.of(context).bodyLarge,
+                            validator: (value) {
+                              if (value != null && value.isEmpty) {
+                                return 'Insira o Telefone';
+                              }
+                              // Utilizando uma expressão regular para validar o número de telefone
+                              if (value != null &&
+                                  !RegExp(r'^\(\d{2}\) \d \d{4}-\d{4}$')
+                                      .hasMatch(value)) {
+                                return 'Telefone inválido';
+                              }
+                              return null;
+                            }),
                       ),
 
                       //===========================================================================================
@@ -379,7 +423,12 @@ class _RegistroPageState extends State<RegistroPage> {
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyLarge,
-                          //validator: _model.textController3Validator.asValidator(context),
+                          validator: (String? value) {
+                            if (value != null && value.isEmpty) {
+                              return 'Insira a Senha';
+                            }
+                            return null;
+                          },
                         ),
                       ),
 
@@ -444,7 +493,12 @@ class _RegistroPageState extends State<RegistroPage> {
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyLarge,
-                          // validator: _complementoController.textController1Validator.asValidator(context),
+                          validator: (String? value) {
+                            if (value != null && value.isEmpty) {
+                              return 'Insira a Rua';
+                            }
+                            return null;
+                          },
                         ),
                       ),
 
@@ -490,7 +544,12 @@ class _RegistroPageState extends State<RegistroPage> {
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyLarge,
-                          // validator: _complementoController.textController1Validator.asValidator(context),
+                          validator: (String? value) {
+                            if (value != null && value.isEmpty) {
+                              return 'Insira o Bairro';
+                            }
+                            return null;
+                          },
                         ),
                       ),
 
@@ -537,7 +596,12 @@ class _RegistroPageState extends State<RegistroPage> {
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyLarge,
-                          // validator: _complementoController.textController1Validator.asValidator(context),
+                          validator: (value) {
+                            if (value != null && value.isEmpty) {
+                              return 'Insira o número';
+                            }
+                            return null;
+                          },
                         ),
                       ),
 
@@ -632,7 +696,11 @@ class _RegistroPageState extends State<RegistroPage> {
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyLarge,
-                          // validator: _complementoController.textController1Validator.asValidator(context),
+                          validator: (value) {
+                            if (value != null && value.isEmpty) {
+                              return 'Insira o CEP';
+                            }
+                          },
                         ),
                       ),
 

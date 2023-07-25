@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:pet_app/screens/Pet/home_screen.dart';
 
 import '../components/id.dart';
 
@@ -10,7 +11,12 @@ showFormModal(BuildContext context) {
   String skipButton = "Cancelar";
 
   // Controlador do campo que receberá o nome do Listin
+
+  String _sexoPet = '';
+  String _tipoPet = '';
+
   final _nameController = TextEditingController();
+  final _tipoController = TextEditingController();
   final _racaController = TextEditingController();
   final _corController = TextEditingController();
   final _dataNascController = TextEditingController();
@@ -41,6 +47,10 @@ showFormModal(BuildContext context) {
             TextFormField(
               controller: _nameController,
               decoration: const InputDecoration(label: Text("Nome do Pet")),
+            ),
+            TextFormField(
+              controller: _tipoController,
+              decoration: const InputDecoration(label: Text("Tipo")),
             ),
             const SizedBox(
               height: 16,
@@ -111,6 +121,7 @@ showFormModal(BuildContext context) {
                       cadastroPet(
                           gerarPetID(),
                           _nameController.text.trim(),
+                          _tipoController.text.trim(),
                           _racaController.text.trim(),
                           _sexoController.text.trim(),
                           _corController.text.trim(),
