@@ -6,6 +6,7 @@ import 'package:pet_app/authentication/component/show_snackbar.dart';
 import 'package:email_validator/email_validator.dart';
 
 import '../Pet/home_screen.dart';
+import 'flutter_flow_icon_button.dart';
 import 'flutter_flow_theme.dart';
 import 'flutter_flow_widgets.dart';
 
@@ -104,6 +105,27 @@ class _RegistroPageState extends State<RegistroPage> {
     return Form(
       key: _formKey,
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          automaticallyImplyLeading: false,
+          leading: FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30,
+            borderWidth: 1,
+            buttonSize: 60,
+            icon: Icon(
+              Icons.arrow_back_rounded,
+              color: FlutterFlowTheme.of(context).secondaryText,
+              size: 30,
+            ),
+            onPressed: () async {
+              Navigator.pop(context);
+            },
+          ),
+          actions: [],
+          centerTitle: true,
+          elevation: 0,
+        ),
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         body: SafeArea(
           top: true,
@@ -117,7 +139,7 @@ class _RegistroPageState extends State<RegistroPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      SizedBox(height: 40.0),
+                      SizedBox(height: 12.0),
 
                       //===========================================================================================
                       //Textos do cabeçalho

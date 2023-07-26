@@ -26,7 +26,11 @@ class _CadastroPetState extends State<CadastroPet> {
 
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          showFormModal(context);
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => AddPetWidget(),
+              ));
         },
         backgroundColor: FlutterFlowTheme.of(context).primary,
         elevation: 8,
