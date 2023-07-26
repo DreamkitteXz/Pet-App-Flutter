@@ -4,6 +4,7 @@ class Vacinas {
   String dataAplicada;
   String proximaAplicacao;
   String pesoDataAplicacao;
+  String imageRotulo;
   String nomeVet;
   String crmv;
 
@@ -13,6 +14,7 @@ class Vacinas {
       required this.dataAplicada,
       required this.proximaAplicacao,
       required this.pesoDataAplicacao,
+      required this.imageRotulo,
       required this.nomeVet,
       required this.crmv});
 
@@ -22,6 +24,7 @@ class Vacinas {
         dataAplicada = map["Data Aplicada"] ?? '',
         pesoDataAplicacao = map["Peso do Pet"] ?? '',
         proximaAplicacao = map["Próxima aplicação"] ?? '',
+        imageRotulo = map["Imagem do Rótulo"] ?? '',
         nomeVet = map["Nome do Veterinário(a)"] ?? '',
         crmv = map["CRMV do Veterinário(a)"] ?? '';
 
@@ -32,6 +35,7 @@ class Vacinas {
       "Data Aplicada": dataAplicada,
       "Peso do Pet": pesoDataAplicacao,
       "Próxima aplicação": proximaAplicacao,
+      "Imagem do Rótulo": imageRotulo,
       "Nome do Veterinário(a)": nomeVet,
       "CRMV do Veterinário(a)": crmv,
     };

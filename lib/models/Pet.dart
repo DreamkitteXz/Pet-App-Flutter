@@ -2,6 +2,7 @@ class Pet {
   String id;
   String name;
   String raca;
+  String tipo;
   String sexo;
   String cor;
   String dataNasc;
@@ -12,6 +13,7 @@ class Pet {
     required this.id,
     required this.name,
     required this.raca,
+    required this.tipo,
     required this.sexo,
     required this.cor,
     required this.dataNasc,
@@ -23,6 +25,7 @@ class Pet {
       : id = map["Pet Id"] ?? '',
         name = map["Nome do pet"] ?? '',
         raca = map["Raca"] ?? '',
+        tipo = map["Tipo"] ?? '',
         sexo = map["Sexo"] ?? '',
         cor = map["Cor"] ?? '',
         dataNasc = map["Data de Nascemento"] ?? '',
@@ -35,6 +38,7 @@ class Pet {
       "Id": id,
       "Name": name,
       "Raça": raca,
+      "Tipo": tipo,
       "Sexo": sexo,
       "Cor": cor,
       "Data de Nascimento": dataNasc,

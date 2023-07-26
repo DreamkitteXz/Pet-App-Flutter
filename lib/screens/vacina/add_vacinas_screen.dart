@@ -48,6 +48,7 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
     String pesoAplicacao,
     String nomeVet,
     String crmv,
+    String imagemRotulo,
   ) async {
     await FirebaseFirestore.instance
         .collection("Users")
@@ -64,11 +65,15 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
       "Próxima aplicação": proximaAplicacao,
       "Nome do Veterinário(a)": nomeVet,
       "CRMV do Veterinário(a)": crmv,
+      "Imagem do Rótulo": imagemRotulo,
     });
   }
   //=================================================================
 
   final _formKey = GlobalKey<FormState>();
+  File? _selectedImage; // Variável para armazenar a imagem selecionada
+
+  String imageURL = '';
 
   @override
   Widget build(BuildContext context) {
@@ -165,7 +170,43 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
               // Botão camera Upload
 
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () async {
+                  //==============================================================
+                  //Abrir a camera
+                  ImagePicker imagePicker = ImagePicker();
+                  XFile? file =
+                      await imagePicker.pickImage(source: ImageSource.camera);
+
+                  if (file == null) return;
+
+                  String uniqueFileName =
+                      DateTime.now().microsecondsSinceEpoch.toString();
+
+                  //==============================================================
+                  //Upload para o Firebase Storage
+
+                  Reference referenceRoot = FirebaseStorage.instance.ref();
+                  Reference referenceDirRoot = referenceRoot.child('images');
+                  Reference referenceImageToUpload =
+                      referenceDirRoot.child(uniqueFileName);
+
+                  //==============================================================
+                  //Tratando os erros
+
+                  try {
+                    //Guardar a imagem
+
+                    await referenceImageToUpload.putFile(File(file!.path));
+
+                    //download url
+
+                    imageURL = await referenceImageToUpload.getDownloadURL();
+
+                    setState(() {});
+                  } catch (error) {}
+
+                  //==============================================================
+                },
                 child: Text("Imagem do Rótulo da vacina"),
               ),
               SizedBox(height: 16),
@@ -214,6 +255,34 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
                 },
               ),
               SizedBox(height: 16),
+
+              //==================================================================
+
+              if (imageURL.isNotEmpty)
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.network(
+                    imageURL,
+                    width: 300,
+                    height: 200,
+                    fit: BoxFit.cover,
+                  ),
+                )
+              else
+                SizedBox(),
+
+              //====================================================================
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+                child: Text(
+                  'Dados do Veterinário',
+                  textAlign: TextAlign.start,
+                  style: FlutterFlowTheme.of(context).displaySmall.override(
+                        fontFamily: 'Outfit',
+                        fontSize: 24,
+                      ),
+                ),
+              ),
 
               //==================================================================
               //Signature
@@ -270,6 +339,11 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
                   // ElevatedButton Salvar
                   ElevatedButton(
                     onPressed: () {
+                      print(imageURL);
+                      if (imageURL.isEmpty) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('Faça o upload da imagem')));
+                      }
                       if (_formKey.currentState!.validate()) {
                         cadastroVacinas(
                           nameController.text.trim(),
@@ -279,6 +353,7 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
                           pesoController.text.trim(),
                           nomeVetController.text.trim(),
                           crmvController.text.trim(),
+                          imageURL,
                         );
                         Navigator.pop(context);
                       }

@@ -125,15 +125,18 @@ class VacinaWidget extends StatelessWidget {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: Image.network(
-                          'https://picsum.photos/seed/450/600',
-                          width: 300,
-                          height: 200,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
+                      if (vacina.imageRotulo.isNotEmpty)
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Image.network(
+                            vacina.imageRotulo,
+                            width: 300,
+                            height: 200,
+                            fit: BoxFit.cover,
+                          ),
+                        )
+                      else
+                        SizedBox(),
                     ],
                   ),
                 ),
@@ -545,24 +548,13 @@ class VacinaWidget extends StatelessWidget {
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: Image.network(
-                          'https://picsum.photos/seed/450/600',
-                          width: 300,
-                          height: 200,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ],
                   ),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
                   child: FFButtonWidget(
                     onPressed: () {
-                      print('LogInButton pressed ...');
+                      print(vacina.imageRotulo);
                     },
                     text: 'Baixar PDF',
                     options: FFButtonOptions(

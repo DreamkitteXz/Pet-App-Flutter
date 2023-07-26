@@ -185,7 +185,7 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       8, 0, 0, 0),
                                   child: Text(
-                                    'Let’s Go!',
+                                    'Começar',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(

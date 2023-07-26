@@ -14,6 +14,11 @@ class CadastroPet extends StatefulWidget {
   State<CadastroPet> createState() => _CadastroPetState();
 }
 
+const String imagemcaoMacho = 'lib/assets/dog-removebg-preview.png';
+const String imagemcaoFemea = 'lib/assets/dogfemea-removebg-preview.png';
+const String imagemgatoMacho = 'lib/assets/cat-removebg-preview.png';
+const String imagemgatoFemea = 'lib/assets/catfemea-removebg-preview.png';
+
 class _CadastroPetState extends State<CadastroPet> {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
@@ -208,13 +213,7 @@ class _CadastroPetState extends State<CadastroPet> {
                                                   borderRadius:
                                                       BorderRadius.circular(12),
                                                 ),
-                                                child: Icon(
-                                                  Icons.pets_rounded,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                  size: 24,
-                                                ),
+                                                child: null, //Icon()
                                               ),
                                             )),
                                       ),
