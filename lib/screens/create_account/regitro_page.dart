@@ -235,9 +235,7 @@ class _RegistroPageState extends State<RegistroPage> {
                             if (value != null && value.isEmpty) {
                               return 'Insira o E-mail';
                             }
-                            if (value != null && value.isEmpty) {
-                              return 'Insira o E-mail';
-                            }
+
                             // Utilizando a função EmailValidator.validate do pacote email_validator
                             if (value != null &&
                                 !EmailValidator.validate(value)) {
