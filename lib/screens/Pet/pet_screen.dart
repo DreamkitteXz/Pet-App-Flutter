@@ -13,14 +13,6 @@ class PetDetalhes extends StatelessWidget {
   final Pet pet;
 
   const PetDetalhes({required this.pet});
-  //Para acessar as informações utilizar
-  //Navigator da tela das vacinas
-  /*Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => VacinasPet(petId: pet.id),
-                  ),
-                );*/
 
   @override
   Widget build(BuildContext context) {

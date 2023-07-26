@@ -6,6 +6,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:pet_app/components/id.dart';
 import 'package:pet_app/models/vacinas.dart';
 import 'package:pet_app/screens/vacina/add_vacinas_screen.dart';
+import 'package:pet_app/screens/vacina/vacinas_detalhes.dart';
 
 import '../create_account/flutter_flow_icon_button.dart';
 import '../create_account/flutter_flow_theme.dart';
@@ -94,6 +95,12 @@ class VacinasPet extends StatelessWidget {
                     remove(model);
                   },
                   child: GestureDetector(
+                    onTap: (() => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => VacinaWidget(vacina: model),
+                          ),
+                        )),
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
                       child: Container(
