@@ -60,6 +60,7 @@ dependencies:
   firebase_storage: ^11.2.5
   image_picker: ^1.0.1
   signature: ^5.4.0
+  flutter_animate: ^4.2.0+1
 
 dev_dependencies:
   flutter_test:
@@ -85,6 +86,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - lib/assets/welcome_pet.png
     - lib/assets/cat-removebg-preview.png
     - lib/assets/catfemea-removebg-preview.png
     - lib/assets/dog-removebg-preview.png

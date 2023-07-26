@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pet_app/screens/Login/login.dart';
 import 'package:pet_app/screens/Pet/home_screen.dart';
 import 'package:pet_app/screens/users.dart';
+import 'package:pet_app/screens/welcome/welcome.dart';
 import 'screens/create_account/regitro_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginWidget(),
+      home: WelcomePageWidget(),
     );
   }
 }
