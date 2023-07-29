@@ -84,6 +84,29 @@ class VermifugoPet extends StatelessWidget {
               Vermifugos model = listVer[index];
               print(model.vermifugo);
               return Dismissible(
+                  confirmDismiss: (DismissDirection direction) async {
+                    if (direction == DismissDirection.endToStart) {
+                      return await showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: const Text('Excluir'),
+                              content: const Text(
+                                  'Tem ceterteza que quer deletar este item?'),
+                              actions: <Widget>[
+                                ElevatedButton(
+                                    onPressed: () =>
+                                        Navigator.of(context).pop(true),
+                                    child: const Text('Sim')),
+                                ElevatedButton(
+                                    onPressed: () =>
+                                        Navigator.of(context).pop(false),
+                                    child: const Text(' Não'))
+                              ],
+                            );
+                          });
+                    }
+                  },
                   key: ValueKey<Vermifugos>(model),
                   direction: DismissDirection.endToStart,
                   background: Container(
@@ -168,7 +191,7 @@ class VermifugoPet extends StatelessWidget {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 4, 8, 0),
                                           child: Text(
-                                            model.primeiraDose,
+                                            model.doseReforco,
                                             textAlign: TextAlign.start,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall,

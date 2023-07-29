@@ -19,6 +19,7 @@ class AddVermifugoScreen extends StatefulWidget {
 
 class _AddVermifugoScreenState extends State<AddVermifugoScreen> {
   DateTime? _selectedDate;
+  bool _mostrarReforco = false;
 
   // Controladores dos campos que receberão as informações da vacina
   final vermifugoController = TextEditingController();
@@ -34,6 +35,7 @@ class _AddVermifugoScreenState extends State<AddVermifugoScreen> {
     String vermifugo,
     String id,
     String primeiraDose,
+    String doseReforco,
     String kiloGrama,
   ) async {
     await FirebaseFirestore.instance
@@ -47,6 +49,7 @@ class _AddVermifugoScreenState extends State<AddVermifugoScreen> {
       "Id": id,
       "Vermifugo": vermifugo,
       "Primeira Dose": primeiraDose,
+      "Dose de Reforço": doseReforco,
       "Kilogramas": kiloGrama,
     });
   }
@@ -103,19 +106,50 @@ class _AddVermifugoScreenState extends State<AddVermifugoScreen> {
                 decoration: InputDecoration(labelText: "Primeira Dose"),
               ),
               SizedBox(height: 16),
+
+              // =======================================================
+              //checkbox dose de reforço?
+
+              Row(
+                children: [
+                  Checkbox(
+                    value: _mostrarReforco,
+                    onChanged: (bool? newValue) {
+                      setState(() {
+                        _mostrarReforco = newValue!;
+                      });
+                    },
+                  ),
+                  Text('Dose de Reforço'),
+                ],
+              ),
+
               // =======================================================
               // TextFormField Próxima aplicação
-              TextFormField(
-                keyboardType: TextInputType.number,
-                validator: (value) {
-                  if (value != null && value.isEmpty) {
-                    return 'Insira o kilograma';
-                  }
-                  return null;
-                },
-                controller: kiloGramaController,
-                decoration: InputDecoration(labelText: "Próxima aplicação"),
-              ),
+
+              _mostrarReforco
+                  ? TextFormField(
+                      readOnly: true,
+                      controller: segundaDoseController,
+                      validator: (value) {
+                        if (value != null && value.isEmpty) {
+                          return 'Insira a data da dose de reforço';
+                        }
+                        return null;
+                      },
+                      onTap: () async {
+                        DateTime? pickedDate = await _showDataPicker();
+                        if (pickedDate != null) {
+                          setState(() {
+                            _selectedDate = pickedDate;
+                            segundaDoseController.text =
+                                formatDateToString(pickedDate);
+                          });
+                        }
+                      },
+                      decoration: InputDecoration(labelText: "Primeira Dose"),
+                    )
+                  : SizedBox(),
               SizedBox(height: 16),
 
               // =================================================================
@@ -139,6 +173,7 @@ class _AddVermifugoScreenState extends State<AddVermifugoScreen> {
                           vermifugoController.text.trim(),
                           gerarVerID(),
                           primeiraDoseController.text.trim(),
+                          segundaDoseController.text.trim(),
                           kiloGramaController.text.trim(),
                         );
                         Navigator.pop(context);
