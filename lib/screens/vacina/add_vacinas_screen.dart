@@ -161,7 +161,8 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   labelText: "Peso no dia da Aplicação",
-                  hintText: "kg",
+                  //hintText: "kg",
+                  suffix: Text('kg'),
                 ),
               ),
               SizedBox(height: 16),

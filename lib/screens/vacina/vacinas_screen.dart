@@ -91,6 +91,29 @@ class VacinasPet extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 8.0),
                     child: const Icon(Icons.delete, color: Colors.white),
                   ),
+                  confirmDismiss: (DismissDirection direction) async {
+                    if (direction == DismissDirection.endToStart) {
+                      return await showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: const Text('Excluir'),
+                              content: const Text(
+                                  'Tem ceterteza que quer deletar este item?'),
+                              actions: <Widget>[
+                                ElevatedButton(
+                                    onPressed: () =>
+                                        Navigator.of(context).pop(true),
+                                    child: const Text('Sim')),
+                                ElevatedButton(
+                                    onPressed: () =>
+                                        Navigator.of(context).pop(false),
+                                    child: const Text(' Não'))
+                              ],
+                            );
+                          });
+                    }
+                  },
                   onDismissed: (direction) {
                     remove(model);
                   },

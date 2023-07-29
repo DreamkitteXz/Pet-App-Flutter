@@ -275,6 +275,7 @@ class _RegistroPageState extends State<RegistroPage> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                         child: Container(
                           child: TextFormField(
+                            keyboardType: TextInputType.number,
                             controller: _cpfController,
                             inputFormatters: [
                               MaskTextInputFormatter(mask: '###.###.###-##')
@@ -455,7 +456,6 @@ class _RegistroPageState extends State<RegistroPage> {
                       //===========================================================================================
                       //Endereço texto
 
-                      // Generated code for this Text Widget...
                       Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
@@ -862,8 +862,4 @@ class _RegistroPageState extends State<RegistroPage> {
     // Se chegou até aqui, o CPF é válido
     return true;
   }
-
-  //Criando uma reaproveitação do ID do Usuário
 }
-
-//Falta Criar uma pop up para falar se esta logado ou não

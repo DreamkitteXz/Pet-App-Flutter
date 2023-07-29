@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:pet_app/models/Pet.dart';
 import 'package:pet_app/screens/Pet/pet_screen.dart';
 
-import '../../models/show_form_model.dart';
+import 'cadastro_pet.dart';
 import '../create_account/flutter_flow_theme.dart';
 
 class CadastroPet extends StatefulWidget {
@@ -148,6 +148,30 @@ class _CadastroPetState extends State<CadastroPet> {
                       //Container do Pet
 
                       return Dismissible(
+                          confirmDismiss: (DismissDirection direction) async {
+                            if (direction == DismissDirection.endToStart) {
+                              return await showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      title: const Text('Excluir'),
+                                      content: const Text(
+                                          'Tem ceterteza que quer deletar este item?'),
+                                      actions: <Widget>[
+                                        ElevatedButton(
+                                            onPressed: () =>
+                                                Navigator.of(context).pop(true),
+                                            child: const Text('Sim')),
+                                        ElevatedButton(
+                                            onPressed: () =>
+                                                Navigator.of(context)
+                                                    .pop(false),
+                                            child: const Text(' Não'))
+                                      ],
+                                    );
+                                  });
+                            }
+                          },
                           key: ValueKey<Pet>(model),
                           direction: DismissDirection.endToStart,
                           background: Container(
