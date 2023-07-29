@@ -36,7 +36,7 @@ class _CadastroPetState extends State<CadastroPet> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => AddPetWidget(),
+                builder: (context) => const AddPetWidget(),
               ));
         },
         backgroundColor: FlutterFlowTheme.of(context).primary,
@@ -90,7 +90,7 @@ class _CadastroPetState extends State<CadastroPet> {
                                     .headlineMedium
                                     .override(
                                       fontFamily: 'Outfit',
-                                      color: Color(0xFF15161E),
+                                      color: const Color(0xFF15161E),
                                       fontSize: 24,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -101,7 +101,7 @@ class _CadastroPetState extends State<CadastroPet> {
                                     .bodySmall
                                     .override(
                                       fontFamily: 'Outfit',
-                                      color: Color(0xFF14181B),
+                                      color: const Color(0xFF14181B),
                                       fontSize: 14,
                                       fontWeight: FontWeight.normal,
                                     ),
@@ -202,7 +202,7 @@ class _CadastroPetState extends State<CadastroPet> {
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  boxShadow: [
+                                  boxShadow: const [
                                     BoxShadow(
                                       blurRadius: 3,
                                       color: Color(0x411D2429),
@@ -218,37 +218,54 @@ class _CadastroPetState extends State<CadastroPet> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 1, 1, 1),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0, 1, 1, 1),
                                         child: ClipRRect(
                                             borderRadius:
                                                 BorderRadius.circular(12),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 1, 1, 1),
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(0, 1, 1, 1),
                                               child: Container(
-                                                width: 70,
-                                                height: 100,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .lineColor,
-                                                  borderRadius:
-                                                      BorderRadius.circular(12),
-                                                ),
-                                                child: model.sexo == 'Macho'
-                                                    ? Image.asset(
-                                                        imagemcaoMacho)
-                                                    : Image.asset(
-                                                        imagemcaoFemea),
-                                              ),
+                                                  width: 70,
+                                                  height: 100,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .lineColor,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            12),
+                                                  ),
+                                                  child: model.tipo == 'cachorro' ||
+                                                          model.tipo ==
+                                                              'Cachorro'
+                                                      ? (model.sexo == 'Macho' ||
+                                                              model.sexo ==
+                                                                  'macho'
+                                                          ? Image.asset(
+                                                              imagemcaoMacho)
+                                                          : Image.asset(
+                                                              imagemcaoFemea))
+                                                      : (model.tipo == 'gato' ||
+                                                              model.tipo ==
+                                                                  'Gato'
+                                                          ? (model.sexo == 'Macho' ||
+                                                                  model.sexo ==
+                                                                      'macho'
+                                                              ? Image.asset(
+                                                                  imagemgatoMacho)
+                                                              : Image.asset(
+                                                                  imagemgatoFemea))
+                                                          : Image.asset(
+                                                              imagemcaoMacho))),
                                             )),
                                       ),
                                       Expanded(
                                         child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  8, 0, 4, 0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(8, 0, 4, 0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -273,8 +290,9 @@ class _CadastroPetState extends State<CadastroPet> {
                                               ),
                                               Flexible(
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 4, 8, 0),
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(0, 4, 8, 0),
                                                   child: Text(
                                                     model.raca,
                                                     textAlign: TextAlign.start,
@@ -286,8 +304,9 @@ class _CadastroPetState extends State<CadastroPet> {
                                               ),
                                               Flexible(
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 4, 8, 0),
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(0, 4, 8, 0),
                                                   child: Text(
                                                     model.sexo,
                                                     textAlign: TextAlign.start,
@@ -307,8 +326,8 @@ class _CadastroPetState extends State<CadastroPet> {
                                             MainAxisAlignment.spaceEvenly,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.end,
-                                        children: [
-                                          const Padding(
+                                        children: const [
+                                          Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 4, 0, 0),

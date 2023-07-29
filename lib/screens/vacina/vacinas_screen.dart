@@ -14,14 +14,16 @@ import '../create_account/flutter_flow_theme.dart';
 class VacinasPet extends StatelessWidget {
   final String? petId;
   final String? petSexo;
-  const VacinasPet({this.petId, this.petSexo});
+  final String? petTipo;
+
+  const VacinasPet({this.petId, this.petSexo, this.petTipo});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF1F4F8),
       appBar: AppBar(
-        title: Text('Vacinas'),
+        title: const Text('Vacinas'),
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
@@ -38,7 +40,7 @@ class VacinasPet extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        actions: [],
+        actions: const [],
         centerTitle: true,
         elevation: 0,
       ),
@@ -133,7 +135,7 @@ class VacinasPet extends StatelessWidget {
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               blurRadius: 3,
                               color: Color(0x411D2429),
@@ -149,13 +151,14 @@ class VacinasPet extends StatelessWidget {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0, 1, 1, 1),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(12),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 1, 1, 1),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0, 1, 1, 1),
                                       child: Container(
                                         width: 70,
                                         height: 100,
@@ -165,17 +168,30 @@ class VacinasPet extends StatelessWidget {
                                           borderRadius:
                                               BorderRadius.circular(12),
                                         ),
-                                        child: petSexo == 'Macho'
-                                            ? Image.asset(
-                                                'lib/assets/vacinadogmacho-removebg-preview.png')
-                                            : Image.asset(
-                                                'lib/assets/vacinadog-removebg-preview.png'),
+                                        child: petTipo == 'cachorro' ||
+                                                petTipo == 'Cachorro'
+                                            ? (petSexo == 'macho' ||
+                                                    petSexo == 'Macho'
+                                                ? Image.asset(
+                                                    'lib/assets/vacinadogmacho-removebg-preview.png')
+                                                : Image.asset(
+                                                    'lib/assets/vacinadog-removebg-preview.png'))
+                                            : (petTipo == 'gato' ||
+                                                    petTipo == 'Gato'
+                                                ? (petSexo == 'macho' ||
+                                                        petSexo == 'macho'
+                                                    ? Image.asset(
+                                                        'lib/assets/catmachovac-removebg-preview.png')
+                                                    : Image.asset(
+                                                        'lib/assets/catfemeavac-removebg-preview.png'))
+                                                : Image.asset(
+                                                    'lib/assets/catfemeavac-removebg-preview.png')),
                                       ),
                                     ),
                                   )),
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       8, 8, 4, 0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -197,9 +213,8 @@ class VacinasPet extends StatelessWidget {
                                       ),
                                       Flexible(
                                         child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 4, 8, 0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0, 4, 8, 0),
                                           child: Text(
                                             model.dataAplicada,
                                             textAlign: TextAlign.start,
@@ -210,9 +225,8 @@ class VacinasPet extends StatelessWidget {
                                       ),
                                       Flexible(
                                         child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 4, 8, 0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0, 4, 8, 0),
                                           child: Text(
                                             model.proximaAplicacao,
                                             textAlign: TextAlign.start,
@@ -230,8 +244,8 @@ class VacinasPet extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  const Padding(
+                                children: const [
+                                  Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0, 4, 0, 0),
                                     child: Icon(

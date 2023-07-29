@@ -16,6 +16,43 @@ class RegistroPage extends StatefulWidget {
 }
 
 class _RegistroPageState extends State<RegistroPage> {
+  //============================================================================
+  //Estados Brasil
+
+  final List<String> states = [
+    'Acre',
+    'Alagoas',
+    'Amapá',
+    'Amazonas',
+    'Bahia',
+    'Ceará',
+    'Distrito Federal',
+    'Espírito Santo',
+    'Goiás',
+    'Maranhão',
+    'Mato Grosso',
+    'Mato Grosso do Sul',
+    'Minas Gerais',
+    'Pará',
+    'Paraíba',
+    'Paraná',
+    'Pernambuco',
+    'Piauí',
+    'Rio de Janeiro',
+    'Rio Grande do Norte',
+    'Rio Grande do Sul',
+    'Rondônia',
+    'Roraima',
+    'Santa Catarina',
+    'São Paulo',
+    'Sergipe',
+    'Tocantins'
+  ];
+
+  String? _selectedState;
+
+  //============================================================================
+
   //Text Controllers para o Envio dos dados
 
   final _emailController = TextEditingController();
@@ -122,7 +159,7 @@ class _RegistroPageState extends State<RegistroPage> {
               Navigator.pop(context);
             },
           ),
-          actions: [],
+          actions: const [],
           centerTitle: true,
           elevation: 0,
         ),
@@ -139,7 +176,7 @@ class _RegistroPageState extends State<RegistroPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      SizedBox(height: 12.0),
+                      const SizedBox(height: 12.0),
 
                       //===========================================================================================
                       //Textos do cabeçalho
@@ -152,7 +189,8 @@ class _RegistroPageState extends State<RegistroPage> {
 
                       // sub-texto
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 24),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 24),
                         child: Text(
                           'Preencha os campos abaixo para criar sua conta',
                           style: FlutterFlowTheme.of(context).labelMedium,
@@ -163,7 +201,8 @@ class _RegistroPageState extends State<RegistroPage> {
                       //Nome
 
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                         child: TextFormField(
                           controller: _nomeController,
                           obscureText: false,
@@ -171,30 +210,29 @@ class _RegistroPageState extends State<RegistroPage> {
                             labelText: 'Nome completo',
                             hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
+                              borderSide: const BorderSide(
+                                color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
@@ -214,7 +252,8 @@ class _RegistroPageState extends State<RegistroPage> {
                       //Email
 
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                         child: TextFormField(
                           controller: _emailController,
                           obscureText: false,
@@ -223,30 +262,29 @@ class _RegistroPageState extends State<RegistroPage> {
                             hintText: 'exemplo@gmail.com',
                             hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
+                              borderSide: const BorderSide(
+                                color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
@@ -272,7 +310,8 @@ class _RegistroPageState extends State<RegistroPage> {
                       //CPF
 
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                         child: Container(
                           child: TextFormField(
                             keyboardType: TextInputType.number,
@@ -285,30 +324,29 @@ class _RegistroPageState extends State<RegistroPage> {
                               labelText: 'CPF',
                               hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                               enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
+                                borderSide: const BorderSide(
+                                  color: Color(0xFFD0D5DD),
                                   width: 2,
                                 ),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0x00000000),
+                                borderSide: const BorderSide(
+                                  color: Color(0xFFD0D5DD),
                                   width: 2,
                                 ),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0x00000000),
+                                borderSide: const BorderSide(
+                                  color: Color(0xFFFDA29B),
                                   width: 2,
                                 ),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0x00000000),
+                                borderSide: const BorderSide(
+                                  color: Color(0xFFFDA29B),
                                   width: 2,
                                 ),
                                 borderRadius: BorderRadius.circular(12),
@@ -343,30 +381,29 @@ class _RegistroPageState extends State<RegistroPage> {
                               labelText: 'Telefone',
                               hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                               enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
+                                borderSide: const BorderSide(
+                                  color: Color(0xFFD0D5DD),
                                   width: 2,
                                 ),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                  color: Color(0x00000000),
+                                  color: Color(0xFFD0D5DD),
                                   width: 2,
                                 ),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               errorBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                  color: Color(0x00000000),
+                                  color: Color(0xFFFDA29B),
                                   width: 2,
                                 ),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               focusedErrorBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                  color: Color(0x00000000),
+                                  color: Color(0xFFFDA29B),
                                   width: 2,
                                 ),
                                 borderRadius: BorderRadius.circular(12),
@@ -400,30 +437,29 @@ class _RegistroPageState extends State<RegistroPage> {
                             labelText: 'Senha',
                             hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
+                              borderSide: const BorderSide(
+                                color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: const BorderSide(
-                                color: Color(0x00000000),
+                                color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderSide: const BorderSide(
-                                color: Color(0x00000000),
+                                color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
                               borderSide: const BorderSide(
-                                color: Color(0x00000000),
+                                color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
@@ -475,7 +511,8 @@ class _RegistroPageState extends State<RegistroPage> {
                       //Rua
 
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                         child: TextFormField(
                           controller: _ruaController,
                           obscureText: false,
@@ -483,30 +520,29 @@ class _RegistroPageState extends State<RegistroPage> {
                             labelText: 'Rua',
                             hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
+                              borderSide: const BorderSide(
+                                color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
@@ -526,7 +562,8 @@ class _RegistroPageState extends State<RegistroPage> {
                       //Bairro
 
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                         child: TextFormField(
                           controller: _bairroController,
                           obscureText: false,
@@ -534,30 +571,29 @@ class _RegistroPageState extends State<RegistroPage> {
                             labelText: 'Bairro',
                             hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
+                              borderSide: const BorderSide(
+                                color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
@@ -577,7 +613,8 @@ class _RegistroPageState extends State<RegistroPage> {
                       //Numero
 
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                         child: TextFormField(
                           controller: _numeroController,
                           keyboardType: TextInputType.number,
@@ -586,30 +623,29 @@ class _RegistroPageState extends State<RegistroPage> {
                             labelText: 'Número',
                             hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
+                              borderSide: const BorderSide(
+                                color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
@@ -629,7 +665,8 @@ class _RegistroPageState extends State<RegistroPage> {
                       //Estado
 
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                         child: TextFormField(
                           controller: _estadoController,
                           obscureText: false,
@@ -637,45 +674,43 @@ class _RegistroPageState extends State<RegistroPage> {
                             labelText: 'Estado',
                             hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
+                              borderSide: const BorderSide(
+                                color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyLarge,
-                          // validator: _complementoController.textController1Validator.asValidator(context),
                         ),
                       ),
-
                       //===========================================================================================
                       //CEP
 
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                         child: TextFormField(
                           controller: _cepController,
                           inputFormatters: [
@@ -686,30 +721,29 @@ class _RegistroPageState extends State<RegistroPage> {
                             labelText: 'CEP',
                             hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
+                              borderSide: const BorderSide(
+                                color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
@@ -728,7 +762,8 @@ class _RegistroPageState extends State<RegistroPage> {
                       //Complemento
 
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                         child: TextFormField(
                           controller: _complementoController,
                           obscureText: false,
@@ -736,30 +771,29 @@ class _RegistroPageState extends State<RegistroPage> {
                             labelText: 'Complemento',
                             hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
+                              borderSide: const BorderSide(
+                                color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
+                              borderSide: const BorderSide(
+                                color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
@@ -783,7 +817,7 @@ class _RegistroPageState extends State<RegistroPage> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => CadastroPet(),
+                                    builder: (context) => const CadastroPet(),
                                   ));
                             }
                           },
@@ -791,9 +825,10 @@ class _RegistroPageState extends State<RegistroPage> {
                           options: FFButtonOptions(
                             width: 370,
                             height: 44,
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                            iconPadding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0, 0, 0, 0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0, 0, 0, 0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall

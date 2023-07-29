@@ -21,7 +21,7 @@ class VermifugoPet extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFF1F4F8),
       appBar: AppBar(
-        title: Text('Vermífugos'),
+        title: const Text('Vermífugos'),
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
@@ -38,7 +38,7 @@ class VermifugoPet extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        actions: [],
+        actions: const [],
         centerTitle: true,
         elevation: 0,
       ),
@@ -129,7 +129,7 @@ class VermifugoPet extends StatelessWidget {
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               blurRadius: 3,
                               color: Color(0x411D2429),
@@ -145,14 +145,14 @@ class VermifugoPet extends StatelessWidget {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0, 1, 1, 1),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(12),
                                   )),
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       8, 8, 4, 0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -174,9 +174,8 @@ class VermifugoPet extends StatelessWidget {
                                       ),
                                       Flexible(
                                         child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 4, 8, 0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0, 4, 8, 0),
                                           child: Text(
                                             model.primeiraDose,
                                             textAlign: TextAlign.start,
@@ -187,9 +186,8 @@ class VermifugoPet extends StatelessWidget {
                                       ),
                                       Flexible(
                                         child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 4, 8, 0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0, 4, 8, 0),
                                           child: Text(
                                             model.doseReforco,
                                             textAlign: TextAlign.start,
@@ -207,8 +205,8 @@ class VermifugoPet extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  const Padding(
+                                children: const [
+                                  Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0, 4, 0, 0),
                                     child: Icon(

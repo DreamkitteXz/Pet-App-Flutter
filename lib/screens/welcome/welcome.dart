@@ -29,8 +29,8 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(-60, 0),
-          end: Offset(0, 0),
+          begin: const Offset(-60, 0),
+          end: const Offset(0, 0),
         ),
       ],
     ),
@@ -42,8 +42,8 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget>
           curve: Curves.easeInOut,
           delay: 600.ms,
           duration: 600.ms,
-          begin: Offset(0, -40),
-          end: Offset(0, 0),
+          begin: const Offset(0, -40),
+          end: const Offset(0, 0),
         ),
       ],
     ),
@@ -55,8 +55,8 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget>
           curve: Curves.easeInOut,
           delay: 1200.ms,
           duration: 600.ms,
-          begin: Offset(0, -40),
-          end: Offset(0, 0),
+          begin: const Offset(0, -40),
+          end: const Offset(0, 0),
         ),
       ],
     ),
@@ -68,8 +68,8 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget>
           curve: Curves.elasticOut,
           delay: 2400.ms,
           duration: 600.ms,
-          begin: Offset(-20, 0),
-          end: Offset(0, 0),
+          begin: const Offset(-20, 0),
+          end: const Offset(0, 0),
         ),
       ],
     ),
@@ -114,7 +114,7 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget>
               ).animateOnPageLoad(
                   animationsMap['containerOnPageLoadAnimation1']!),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(30, 40, 30, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(30, 40, 30, 0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -130,7 +130,8 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget>
                     )).animateOnPageLoad(
                         animationsMap['textOnPageLoadAnimation1']!),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
                       child: SelectionArea(
                           child: Text(
                         'Seja bem-vindo(a) ao nosso sistema de controle de saúde para pets! Aqui você poderá cuidar da saúde do seu pet de forma fácil e prática, tudo na palma das suas mãos! ',
@@ -145,7 +146,8 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget>
                     ),
                     // Generated code for this Container Widget...
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -155,18 +157,18 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget>
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => LoginWidget(),
+                                builder: (context) => const LoginWidget(),
                               ));
                         },
                         child: Container(
                           width: 181,
                           height: 50,
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             maxHeight: 32,
                           ),
                           decoration: BoxDecoration(
-                            color: Color(0xFF008B7D),
-                            boxShadow: [
+                            color: const Color(0xFF008B7D),
+                            boxShadow: const [
                               BoxShadow(
                                 blurRadius: 4,
                                 color: Color(0x32171717),
@@ -176,13 +178,14 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget>
                             borderRadius: BorderRadius.circular(30),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                8, 0, 8, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       8, 0, 0, 0),
                                   child: Text(
                                     'Começar',
@@ -196,7 +199,7 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget>
                                         ),
                                   ),
                                 ),
-                                Padding(
+                                const Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       12, 0, 0, 0),
                                   child: Icon(

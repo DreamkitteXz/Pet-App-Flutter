@@ -81,7 +81,7 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
       key: _formKey,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Adicione uma Vacina"),
+          title: const Text("Adicione uma Vacina"),
         ),
         body: Padding(
           padding: const EdgeInsets.all(32.0),
@@ -91,7 +91,7 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
               // TextFormField Nome da vacina
               TextFormField(
                 controller: nameController,
-                decoration: InputDecoration(labelText: "Vacina"),
+                decoration: const InputDecoration(labelText: "Vacina"),
                 validator: (String? value) {
                   if (value != null && value.isEmpty) {
                     return 'Insira a Vacina';
@@ -99,7 +99,7 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               // =======================================================
               // TextFormField Data Aplicada
               TextFormField(
@@ -121,9 +121,9 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
                     });
                   }
                 },
-                decoration: InputDecoration(labelText: "Data Aplicada"),
+                decoration: const InputDecoration(labelText: "Data Aplicada"),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               // =======================================================
               // TextFormField Próxima aplicação
               TextFormField(
@@ -145,9 +145,10 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
                     });
                   }
                 },
-                decoration: InputDecoration(labelText: "Próxima aplicação"),
+                decoration:
+                    const InputDecoration(labelText: "Próxima aplicação"),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               // =================================================================
               // TextFormField Peso no dia da Aplicação
               TextFormField(
@@ -159,13 +160,13 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
                   return null;
                 },
                 keyboardType: TextInputType.number,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "Peso no dia da Aplicação",
                   //hintText: "kg",
                   suffix: Text('kg'),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
 
               //==================================================================
               // Botão camera Upload
@@ -208,9 +209,9 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
 
                   //==============================================================
                 },
-                child: Text("Imagem do Rótulo da vacina"),
+                child: const Text("Imagem do Rótulo da vacina"),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
 
               //==================================================================
               // Dados do Veterinário text
@@ -232,7 +233,7 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
 
               TextFormField(
                 controller: nomeVetController,
-                decoration: InputDecoration(labelText: "Veterinário(a)"),
+                decoration: const InputDecoration(labelText: "Veterinário(a)"),
                 validator: (String? value) {
                   if (value != null && value.isEmpty) {
                     return 'Insira o Nome do(a) veterinário(a)';
@@ -240,14 +241,14 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
 
               //==================================================================
               //CRMV
 
               TextFormField(
                 controller: crmvController,
-                decoration: InputDecoration(labelText: "CRMV"),
+                decoration: const InputDecoration(labelText: "CRMV"),
                 validator: (String? value) {
                   if (value != null && value.isEmpty) {
                     return 'Insira o CRMV';
@@ -255,7 +256,7 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
 
               //==================================================================
 
@@ -270,7 +271,7 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
                   ),
                 )
               else
-                SizedBox(),
+                const SizedBox(),
 
               //====================================================================
               Padding(
@@ -301,7 +302,7 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
               ),
 
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                 child: Container(
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -333,9 +334,9 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: Text("Cancelar"),
+                    child: const Text("Cancelar"),
                   ),
-                  SizedBox(width: 16),
+                  const SizedBox(width: 16),
                   // ===================================================
                   // ElevatedButton Salvar
                   ElevatedButton(
@@ -343,7 +344,8 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
                       print(imageURL);
                       if (imageURL.isEmpty) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('Faça o upload da imagem')));
+                            const SnackBar(
+                                content: Text('Faça o upload da imagem')));
                       }
                       if (_formKey.currentState!.validate()) {
                         cadastroVacinas(
@@ -359,7 +361,7 @@ class _AddVacinaScreenState extends State<AddVacinaScreen> {
                         Navigator.pop(context);
                       }
                     },
-                    child: Text("Salvar"),
+                    child: const Text("Salvar"),
                   ),
                 ],
               )

@@ -54,6 +54,7 @@ class _AddPetWidgetState extends State<AddPetWidget> {
                 Navigator.pop(context);
               },
             ),
+            // ignore: prefer_const_literals_to_create_immutables
             actions: [],
             centerTitle: true,
             elevation: 0,
@@ -61,9 +62,9 @@ class _AddPetWidgetState extends State<AddPetWidget> {
           body: SafeArea(
             top: true,
             child: Align(
-              alignment: AlignmentDirectional(0, 0),
+              alignment: const AlignmentDirectional(0, 0),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32, 12, 32, 32),
+                padding: const EdgeInsetsDirectional.fromSTEB(32, 12, 32, 32),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -75,14 +76,16 @@ class _AddPetWidgetState extends State<AddPetWidget> {
                         style: FlutterFlowTheme.of(context).displaySmall,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 24),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 24),
                         child: Text(
                           'Preencha os campos abaixo para adicionar seu Pet.',
                           style: FlutterFlowTheme.of(context).labelMedium,
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                         child: TextFormField(
                             controller: _nameController,
                             obscureText: false,
@@ -90,28 +93,28 @@ class _AddPetWidgetState extends State<AddPetWidget> {
                               labelText: 'Nome',
                               hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                               enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0xFFD0D5DD),
                                   width: 2,
                                 ),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0xFFD0D5DD),
                                   width: 2,
                                 ),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0xFFFDA29B),
                                   width: 2,
                                 ),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0xFFFDA29B),
                                   width: 2,
                                 ),
@@ -126,7 +129,8 @@ class _AddPetWidgetState extends State<AddPetWidget> {
                             }),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                         child: TextFormField(
                             controller: _tipoController,
                             obscureText: false,
@@ -134,28 +138,28 @@ class _AddPetWidgetState extends State<AddPetWidget> {
                               labelText: 'Tipo',
                               hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                               enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0xFFD0D5DD),
                                   width: 2,
                                 ),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0xFFD0D5DD),
                                   width: 2,
                                 ),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0xFFFDA29B),
                                   width: 2,
                                 ),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0xFFFDA29B),
                                   width: 2,
                                 ),
@@ -170,7 +174,8 @@ class _AddPetWidgetState extends State<AddPetWidget> {
                             }),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                         child: TextFormField(
                           controller: _racaController,
                           obscureText: false,
@@ -178,28 +183,28 @@ class _AddPetWidgetState extends State<AddPetWidget> {
                             labelText: 'Raça',
                             hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
@@ -215,7 +220,8 @@ class _AddPetWidgetState extends State<AddPetWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                         child: TextFormField(
                           controller: _corController,
                           obscureText: false,
@@ -223,28 +229,28 @@ class _AddPetWidgetState extends State<AddPetWidget> {
                             labelText: 'Cor',
                             hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
@@ -260,7 +266,8 @@ class _AddPetWidgetState extends State<AddPetWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                         child: TextFormField(
                           controller: _sexoController,
                           obscureText: false,
@@ -268,28 +275,28 @@ class _AddPetWidgetState extends State<AddPetWidget> {
                             labelText: 'Sexo',
                             hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
@@ -305,7 +312,8 @@ class _AddPetWidgetState extends State<AddPetWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                         child: TextFormField(
                           inputFormatters: [
                             MaskTextInputFormatter(mask: '##/##/####')
@@ -317,28 +325,28 @@ class _AddPetWidgetState extends State<AddPetWidget> {
                             hintText: "dd/mm/aaaa",
                             hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
@@ -354,7 +362,8 @@ class _AddPetWidgetState extends State<AddPetWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                         child: TextFormField(
                           controller: _isInteiroController,
                           obscureText: false,
@@ -362,28 +371,28 @@ class _AddPetWidgetState extends State<AddPetWidget> {
                             labelText: 'Inteiro ou Castrado?',
                             hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
@@ -399,7 +408,8 @@ class _AddPetWidgetState extends State<AddPetWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                         child: TextFormField(
                           controller: _chipController,
                           obscureText: false,
@@ -407,28 +417,28 @@ class _AddPetWidgetState extends State<AddPetWidget> {
                             labelText: 'Chip',
                             hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFD0D5DD),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0xFFFDA29B),
                                 width: 2,
                               ),
@@ -439,7 +449,8 @@ class _AddPetWidgetState extends State<AddPetWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                         child: FFButtonWidget(
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
@@ -460,9 +471,10 @@ class _AddPetWidgetState extends State<AddPetWidget> {
                           options: FFButtonOptions(
                             width: 370,
                             height: 44,
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                            iconPadding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0, 0, 0, 0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0, 0, 0, 0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall

@@ -48,14 +48,14 @@ class PetDetalhes extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                   child: Text(
                     pet.name,
                     style: FlutterFlowTheme.of(context).headlineMedium,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24, 4, 0, 0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(24, 4, 0, 0),
                   child: Text(
                     'Informações do seu Pet',
                     textAlign: TextAlign.start,
@@ -63,7 +63,7 @@ class PetDetalhes extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 12),
+                  padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 12),
                   child: GridView(
                     padding: EdgeInsets.zero,
                     gridDelegate:
@@ -82,7 +82,9 @@ class PetDetalhes extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => VacinasPet(
-                                    petId: pet.id, petSexo: pet.sexo),
+                                    petId: pet.id,
+                                    petSexo: pet.sexo,
+                                    petTipo: pet.tipo),
                               ),
                             )),
                         child: Container(
@@ -147,12 +149,12 @@ class PetDetalhes extends StatelessWidget {
                             )),
                         child: Container(
                           decoration: BoxDecoration(
-                            color: Color(0xFF00A300),
+                            color: const Color(0xFF00A300),
                             borderRadius: BorderRadius.circular(16),
                           ),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                12, 0, 12, 0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -199,7 +201,7 @@ class PetDetalhes extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 12),
+                  padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 0, 12),
                   child: Text(
                     'Informações:',
                     textAlign: TextAlign.start,
@@ -211,7 +213,7 @@ class PetDetalhes extends StatelessWidget {
                 //Informação Nome
 
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   child: ListView(
                     padding: EdgeInsets.zero,
                     primary: false,
@@ -219,10 +221,11 @@ class PetDetalhes extends StatelessWidget {
                     scrollDirection: Axis.vertical,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
                         child: Container(
                           width: double.infinity,
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             maxWidth: 570,
                           ),
                           decoration: BoxDecoration(
@@ -236,14 +239,14 @@ class PetDetalhes extends StatelessWidget {
                             ),
                           ),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(16, 12, 16, 12),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                16, 12, 16, 12),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 12, 0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -257,8 +260,8 @@ class PetDetalhes extends StatelessWidget {
                                             .bodyLarge,
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0, 4, 0, 0),
                                         child: Text(
                                           pet.name,
                                           style: FlutterFlowTheme.of(context)
@@ -287,7 +290,7 @@ class PetDetalhes extends StatelessWidget {
                 //Informação Cor
 
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   child: ListView(
                     padding: EdgeInsets.zero,
                     primary: false,
@@ -295,10 +298,11 @@ class PetDetalhes extends StatelessWidget {
                     scrollDirection: Axis.vertical,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
                         child: Container(
                           width: double.infinity,
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             maxWidth: 570,
                           ),
                           decoration: BoxDecoration(
@@ -312,14 +316,14 @@ class PetDetalhes extends StatelessWidget {
                             ),
                           ),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(16, 12, 16, 12),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                16, 12, 16, 12),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 12, 0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -333,8 +337,8 @@ class PetDetalhes extends StatelessWidget {
                                             .bodyLarge,
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0, 4, 0, 0),
                                         child: Text(
                                           pet.cor,
                                           style: FlutterFlowTheme.of(context)
@@ -363,7 +367,7 @@ class PetDetalhes extends StatelessWidget {
                 //Informação Raça
 
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   child: ListView(
                     padding: EdgeInsets.zero,
                     primary: false,
@@ -371,10 +375,11 @@ class PetDetalhes extends StatelessWidget {
                     scrollDirection: Axis.vertical,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
                         child: Container(
                           width: double.infinity,
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             maxWidth: 570,
                           ),
                           decoration: BoxDecoration(
@@ -388,14 +393,14 @@ class PetDetalhes extends StatelessWidget {
                             ),
                           ),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(16, 12, 16, 12),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                16, 12, 16, 12),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 12, 0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -409,8 +414,8 @@ class PetDetalhes extends StatelessWidget {
                                             .bodyLarge,
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0, 4, 0, 0),
                                         child: Text(
                                           pet.raca,
                                           style: FlutterFlowTheme.of(context)
@@ -438,7 +443,7 @@ class PetDetalhes extends StatelessWidget {
                 //============================================================================
                 //Tipo
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   child: ListView(
                     padding: EdgeInsets.zero,
                     primary: false,
@@ -446,10 +451,11 @@ class PetDetalhes extends StatelessWidget {
                     scrollDirection: Axis.vertical,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
                         child: Container(
                           width: double.infinity,
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             maxWidth: 570,
                           ),
                           decoration: BoxDecoration(
@@ -463,14 +469,14 @@ class PetDetalhes extends StatelessWidget {
                             ),
                           ),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(16, 12, 16, 12),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                16, 12, 16, 12),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 12, 0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -516,7 +522,7 @@ class PetDetalhes extends StatelessWidget {
                 //Informação Sexo
 
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   child: ListView(
                     padding: EdgeInsets.zero,
                     primary: false,
@@ -524,10 +530,11 @@ class PetDetalhes extends StatelessWidget {
                     scrollDirection: Axis.vertical,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
                         child: Container(
                           width: double.infinity,
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             maxWidth: 570,
                           ),
                           decoration: BoxDecoration(
@@ -541,14 +548,14 @@ class PetDetalhes extends StatelessWidget {
                             ),
                           ),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(16, 12, 16, 12),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                16, 12, 16, 12),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 12, 0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -562,8 +569,8 @@ class PetDetalhes extends StatelessWidget {
                                             .bodyLarge,
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0, 4, 0, 0),
                                         child: Text(
                                           pet.sexo,
                                           style: FlutterFlowTheme.of(context)

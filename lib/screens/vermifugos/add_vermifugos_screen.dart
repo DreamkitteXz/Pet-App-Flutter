@@ -63,7 +63,7 @@ class _AddVermifugoScreenState extends State<AddVermifugoScreen> {
       key: _formKey,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Adicione um Vermifugo"),
+          title: const Text("Adicione um Vermifugo"),
         ),
         body: Padding(
           padding: const EdgeInsets.all(32.0),
@@ -73,7 +73,7 @@ class _AddVermifugoScreenState extends State<AddVermifugoScreen> {
               // TextFormField Nome da Vermifugo
               TextFormField(
                 controller: vermifugoController,
-                decoration: InputDecoration(labelText: "Vermifugo"),
+                decoration: const InputDecoration(labelText: "Vermifugo"),
                 validator: (String? value) {
                   if (value != null && value.isEmpty) {
                     return 'Insira o Vermifugo';
@@ -81,7 +81,7 @@ class _AddVermifugoScreenState extends State<AddVermifugoScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               // =======================================================
               // TextFormField Primeira dose
               TextFormField(
@@ -103,9 +103,9 @@ class _AddVermifugoScreenState extends State<AddVermifugoScreen> {
                     });
                   }
                 },
-                decoration: InputDecoration(labelText: "Primeira Dose"),
+                decoration: const InputDecoration(labelText: "Primeira Dose"),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
 
               // =======================================================
               //checkbox dose de reforço?
@@ -120,7 +120,7 @@ class _AddVermifugoScreenState extends State<AddVermifugoScreen> {
                       });
                     },
                   ),
-                  Text('Dose de Reforço'),
+                  const Text('Dose de Reforço'),
                 ],
               ),
 
@@ -147,10 +147,11 @@ class _AddVermifugoScreenState extends State<AddVermifugoScreen> {
                           });
                         }
                       },
-                      decoration: InputDecoration(labelText: "Primeira Dose"),
+                      decoration:
+                          const InputDecoration(labelText: "Primeira Dose"),
                     )
-                  : SizedBox(),
-              SizedBox(height: 16),
+                  : const SizedBox(),
+              const SizedBox(height: 16),
 
               // =================================================================
               // TextButton Cancelar
@@ -161,9 +162,9 @@ class _AddVermifugoScreenState extends State<AddVermifugoScreen> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: Text("Cancelar"),
+                    child: const Text("Cancelar"),
                   ),
-                  SizedBox(width: 16),
+                  const SizedBox(width: 16),
                   // ===================================================
                   // ElevatedButton Salvar
                   ElevatedButton(
@@ -179,7 +180,7 @@ class _AddVermifugoScreenState extends State<AddVermifugoScreen> {
                         Navigator.pop(context);
                       }
                     },
-                    child: Text("Salvar"),
+                    child: const Text("Salvar"),
                   ),
                 ],
               )

@@ -11,11 +11,11 @@ class UsersDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Informações do Usuário"),
+          title: const Text("Informações do Usuário"),
         ),
         body: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -34,7 +34,7 @@ class UsersDetails extends StatelessWidget {
                             ),
                           );
                         },
-                        child: Text("Sair")),
+                        child: const Text("Sair")),
                   ],
                 )
               ],

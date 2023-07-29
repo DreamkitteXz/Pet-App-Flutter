@@ -33,8 +33,8 @@ class VacinaWidget extends StatelessWidget {
           curve: Curves.easeInOut,
           delay: 150.ms,
           duration: 600.ms,
-          begin: Offset(0, 170),
-          end: Offset(0, 0),
+          begin: const Offset(0, 170),
+          end: const Offset(0, 0),
         ),
       ],
     ),
@@ -53,8 +53,8 @@ class VacinaWidget extends StatelessWidget {
           curve: Curves.easeInOut,
           delay: 150.ms,
           duration: 600.ms,
-          begin: Offset(0, 170),
-          end: Offset(0, 0),
+          begin: const Offset(0, 170),
+          end: const Offset(0, 0),
         ),
       ],
     ),
@@ -82,7 +82,7 @@ class VacinaWidget extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
-          actions: [],
+          actions: const [],
           centerTitle: true,
           elevation: 0,
         ),
@@ -94,7 +94,7 @@ class VacinaWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                   child: Text(
                     vacina.vacina,
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -104,7 +104,7 @@ class VacinaWidget extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24, 4, 0, 12),
+                  padding: const EdgeInsetsDirectional.fromSTEB(24, 4, 0, 12),
                   child: Text(
                     'Informações da Vacina',
                     textAlign: TextAlign.start,
@@ -112,7 +112,7 @@ class VacinaWidget extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24, 4, 0, 12),
+                  padding: const EdgeInsetsDirectional.fromSTEB(24, 4, 0, 12),
                   child: Text(
                     'Foto do rótulo:',
                     textAlign: TextAlign.start,
@@ -120,7 +120,7 @@ class VacinaWidget extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -136,12 +136,12 @@ class VacinaWidget extends StatelessWidget {
                           ),
                         )
                       else
-                        SizedBox(),
+                        const SizedBox(),
                     ],
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
                   child: ListView(
                     padding: EdgeInsets.zero,
                     primary: false,
@@ -149,10 +149,11 @@ class VacinaWidget extends StatelessWidget {
                     scrollDirection: Axis.vertical,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 12),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            16, 12, 16, 12),
                         child: Container(
                           width: double.infinity,
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             maxWidth: 570,
                           ),
                           decoration: BoxDecoration(
@@ -166,14 +167,14 @@ class VacinaWidget extends StatelessWidget {
                             ),
                           ),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(16, 12, 16, 12),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                16, 12, 16, 12),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 12, 0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -187,8 +188,8 @@ class VacinaWidget extends StatelessWidget {
                                             .bodyLarge,
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0, 4, 0, 0),
                                         child: Text(
                                           vacina.vacina,
                                           style: FlutterFlowTheme.of(context)
@@ -210,10 +211,11 @@ class VacinaWidget extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 12),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            16, 12, 16, 12),
                         child: Container(
                           width: double.infinity,
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             maxWidth: 570,
                           ),
                           decoration: BoxDecoration(
@@ -227,14 +229,14 @@ class VacinaWidget extends StatelessWidget {
                             ),
                           ),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(16, 12, 16, 12),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                16, 12, 16, 12),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 12, 0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -248,8 +250,8 @@ class VacinaWidget extends StatelessWidget {
                                             .bodyLarge,
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0, 4, 0, 0),
                                         child: Text(
                                           vacina.dataAplicada,
                                           style: FlutterFlowTheme.of(context)
@@ -271,10 +273,11 @@ class VacinaWidget extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 12),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            16, 12, 16, 12),
                         child: Container(
                           width: double.infinity,
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             maxWidth: 570,
                           ),
                           decoration: BoxDecoration(
@@ -288,14 +291,14 @@ class VacinaWidget extends StatelessWidget {
                             ),
                           ),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(16, 12, 16, 12),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                16, 12, 16, 12),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 12, 0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -309,8 +312,8 @@ class VacinaWidget extends StatelessWidget {
                                             .bodyLarge,
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0, 4, 0, 0),
                                         child: Text(
                                           vacina.proximaAplicacao,
                                           style: FlutterFlowTheme.of(context)
@@ -332,10 +335,11 @@ class VacinaWidget extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 12),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            16, 12, 16, 12),
                         child: Container(
                           width: double.infinity,
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             maxWidth: 570,
                           ),
                           decoration: BoxDecoration(
@@ -349,14 +353,14 @@ class VacinaWidget extends StatelessWidget {
                             ),
                           ),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(16, 12, 16, 12),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                16, 12, 16, 12),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 12, 0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -370,8 +374,8 @@ class VacinaWidget extends StatelessWidget {
                                             .bodyLarge,
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0, 4, 0, 0),
                                         child: Text(
                                           vacina.pesoDataAplicacao,
                                           style: FlutterFlowTheme.of(context)
@@ -397,7 +401,7 @@ class VacinaWidget extends StatelessWidget {
                       animationsMap['listViewOnPageLoadAnimation1']!),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                   child: Text(
                     'Dados do veterinário(a)',
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -413,10 +417,11 @@ class VacinaWidget extends StatelessWidget {
                   scrollDirection: Axis.vertical,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 12),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 12),
                       child: Container(
                         width: double.infinity,
-                        constraints: BoxConstraints(
+                        constraints: const BoxConstraints(
                           maxWidth: 570,
                         ),
                         decoration: BoxDecoration(
@@ -430,15 +435,15 @@ class VacinaWidget extends StatelessWidget {
                           ),
                         ),
                         child: Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(16, 12, 16, 12),
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              16, 12, 16, 12),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0, 0, 12, 0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -450,8 +455,9 @@ class VacinaWidget extends StatelessWidget {
                                           .bodyLarge,
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 4, 0, 0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0, 4, 0, 0),
                                       child: Text(
                                         vacina.nomeVet,
                                         style: FlutterFlowTheme.of(context)
@@ -473,10 +479,11 @@ class VacinaWidget extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 12),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 12),
                       child: Container(
                         width: double.infinity,
-                        constraints: BoxConstraints(
+                        constraints: const BoxConstraints(
                           maxWidth: 570,
                         ),
                         decoration: BoxDecoration(
@@ -490,15 +497,15 @@ class VacinaWidget extends StatelessWidget {
                           ),
                         ),
                         child: Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(16, 12, 16, 12),
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              16, 12, 16, 12),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0, 0, 12, 0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -510,8 +517,9 @@ class VacinaWidget extends StatelessWidget {
                                           .bodyLarge,
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 4, 0, 0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0, 4, 0, 0),
                                       child: Text(
                                         vacina.crmv,
                                         style: FlutterFlowTheme.of(context)
@@ -536,7 +544,7 @@ class VacinaWidget extends StatelessWidget {
                 ).animateOnPageLoad(
                     animationsMap['listViewOnPageLoadAnimation2']!),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 12),
+                  padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 0, 12),
                   child: Text(
                     'Assinatura do veterinário(a):',
                     textAlign: TextAlign.start,
@@ -544,14 +552,14 @@ class VacinaWidget extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
+                  padding: const EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
                   child: FFButtonWidget(
                     onPressed: () {
                       print(vacina.imageRotulo);
@@ -560,8 +568,9 @@ class VacinaWidget extends StatelessWidget {
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 44,
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                      iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                      iconPadding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                       color: FlutterFlowTheme.of(context).primary,
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
@@ -569,7 +578,7 @@ class VacinaWidget extends StatelessWidget {
                                 color: Colors.white,
                               ),
                       elevation: 2,
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Colors.transparent,
                         width: 1,
                       ),

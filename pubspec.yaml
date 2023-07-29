@@ -94,6 +94,8 @@ flutter:
     - lib/assets/pet.png
     - lib/assets/vacinadog-removebg-preview.png
     - lib/assets/vacinadogmacho-removebg-preview.png
+    - lib/assets/catfemeavac-removebg-preview.png
+    - lib/assets/catmachovac-removebg-preview.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
