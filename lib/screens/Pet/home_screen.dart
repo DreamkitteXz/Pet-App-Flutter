@@ -8,7 +8,9 @@ import 'cadastro_pet.dart';
 import '../create_account/flutter_flow_theme.dart';
 
 class CadastroPet extends StatefulWidget {
-  const CadastroPet({Key? key}) : super(key: key);
+  final String sexo;
+
+  const CadastroPet({Key? key, this.sexo = ''}) : super(key: key);
 
   @override
   State<CadastroPet> createState() => _CadastroPetState();
@@ -197,8 +199,6 @@ class _CadastroPetState extends State<CadastroPet> {
                               child: Container(
                                 width: MediaQuery.of(context).size.width,
                                 height: 100,
-                                // Other properties for the Container...
-
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -223,8 +223,7 @@ class _CadastroPetState extends State<CadastroPet> {
                                         child: ClipRRect(
                                             borderRadius:
                                                 BorderRadius.circular(12),
-                                            child: // Generated code for this Container Widget...
-                                                Padding(
+                                            child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0, 1, 1, 1),
                                               child: Container(
@@ -237,7 +236,11 @@ class _CadastroPetState extends State<CadastroPet> {
                                                   borderRadius:
                                                       BorderRadius.circular(12),
                                                 ),
-                                                child: null, //Icon()
+                                                child: model.sexo == 'Macho'
+                                                    ? Image.asset(
+                                                        imagemcaoMacho)
+                                                    : Image.asset(
+                                                        imagemcaoFemea),
                                               ),
                                             )),
                                       ),

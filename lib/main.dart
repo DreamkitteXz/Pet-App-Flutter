@@ -47,7 +47,7 @@ class RoteadorTelas extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         }
         if (snapshot.hasData) {
-          return const CadastroPet();
+          return CadastroPet();
         } else {
           return LoginWidget();
         }

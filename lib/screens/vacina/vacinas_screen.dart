@@ -13,7 +13,8 @@ import '../create_account/flutter_flow_theme.dart';
 
 class VacinasPet extends StatelessWidget {
   final String? petId;
-  const VacinasPet({this.petId});
+  final String? petSexo;
+  const VacinasPet({this.petId, this.petSexo});
 
   @override
   Widget build(BuildContext context) {
@@ -129,8 +130,6 @@ class VacinasPet extends StatelessWidget {
                       child: Container(
                         width: MediaQuery.of(context).size.width,
                         height: 100,
-                        // Other properties for the Container...
-
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -154,6 +153,25 @@ class VacinasPet extends StatelessWidget {
                                       0, 1, 1, 1),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(12),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 1, 1, 1),
+                                      child: Container(
+                                        width: 70,
+                                        height: 100,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .lineColor,
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                        ),
+                                        child: petSexo == 'Macho'
+                                            ? Image.asset(
+                                                'lib/assets/vacinadogmacho-removebg-preview.png')
+                                            : Image.asset(
+                                                'lib/assets/vacinadog-removebg-preview.png'),
+                                      ),
+                                    ),
                                   )),
                               Expanded(
                                 child: Padding(

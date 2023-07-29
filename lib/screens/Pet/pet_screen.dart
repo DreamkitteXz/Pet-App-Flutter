@@ -81,7 +81,8 @@ class PetDetalhes extends StatelessWidget {
                         onTap: (() => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => VacinasPet(petId: pet.id),
+                                builder: (context) => VacinasPet(
+                                    petId: pet.id, petSexo: pet.sexo),
                               ),
                             )),
                         child: Container(
