@@ -61,6 +61,7 @@ dependencies:
   image_picker: ^1.0.1
   signature: ^5.4.0
   flutter_animate: ^4.2.0+1
+  dropdown_button2: ^2.1.4
 
 dev_dependencies:
   flutter_test:
@@ -96,6 +97,8 @@ flutter:
     - lib/assets/vacinadogmacho-removebg-preview.png
     - lib/assets/catfemeavac-removebg-preview.png
     - lib/assets/catmachovac-removebg-preview.png
+    - lib/assets/vermifugo.png
+    - lib/assets/vacinabk.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

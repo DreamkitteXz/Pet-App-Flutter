@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: WelcomePageWidget(),
+      home: RoteadorTelas(),
     );
   }
 }
@@ -49,7 +49,7 @@ class RoteadorTelas extends StatelessWidget {
         if (snapshot.hasData) {
           return CadastroPet();
         } else {
-          return LoginWidget();
+          return WelcomePageWidget();
         }
       },
     );

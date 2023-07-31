@@ -5,6 +5,9 @@ class Vacinas {
   String proximaAplicacao;
   String pesoDataAplicacao;
   String imageRotulo;
+  String lote;
+  String farmaceutica;
+  String dataValidade;
   String nomeVet;
   String crmv;
 
@@ -15,6 +18,9 @@ class Vacinas {
       required this.proximaAplicacao,
       required this.pesoDataAplicacao,
       required this.imageRotulo,
+      required this.lote,
+      required this.farmaceutica,
+      required this.dataValidade,
       required this.nomeVet,
       required this.crmv});
 
@@ -25,6 +31,9 @@ class Vacinas {
         pesoDataAplicacao = map["Peso do Pet"] ?? '',
         proximaAplicacao = map["Próxima aplicação"] ?? '',
         imageRotulo = map["Imagem do Rótulo"] ?? '',
+        lote = map["Lote"] ?? '',
+        farmaceutica = map["Farmaceutica"] ?? '',
+        dataValidade = map["Data de Validade"] ?? '',
         nomeVet = map["Nome do Veterinário(a)"] ?? '',
         crmv = map["CRMV do Veterinário(a)"] ?? '';
 
@@ -36,6 +45,9 @@ class Vacinas {
       "Peso do Pet": pesoDataAplicacao,
       "Próxima aplicação": proximaAplicacao,
       "Imagem do Rótulo": imageRotulo,
+      "Lote": lote,
+      "Farmaceutica": farmaceutica,
+      "Data de Validade": dataValidade,
       "Nome do Veterinário(a)": nomeVet,
       "CRMV do Veterinário(a)": crmv,
     };

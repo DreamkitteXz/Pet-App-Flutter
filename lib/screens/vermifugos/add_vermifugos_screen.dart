@@ -148,7 +148,7 @@ class _AddVermifugoScreenState extends State<AddVermifugoScreen> {
                         }
                       },
                       decoration:
-                          const InputDecoration(labelText: "Primeira Dose"),
+                          const InputDecoration(labelText: "Dose de Reforoço"),
                     )
                   : const SizedBox(),
               const SizedBox(height: 16),

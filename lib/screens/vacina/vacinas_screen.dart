@@ -5,11 +5,11 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:pet_app/components/id.dart';
 import 'package:pet_app/models/vacinas.dart';
-import 'package:pet_app/screens/vacina/add_vacinas_screen.dart';
 import 'package:pet_app/screens/vacina/vacinas_detalhes.dart';
-
 import '../create_account/flutter_flow_icon_button.dart';
 import '../create_account/flutter_flow_theme.dart';
+import 'add_vacina.dart';
+import 'edit_vacina.dart';
 
 class VacinasPet extends StatelessWidget {
   final String? petId;
@@ -49,7 +49,7 @@ class VacinasPet extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => AddVacinaScreen(petId: petId),
+              builder: (context) => AddVacinaWidget(petId: petId),
             ),
           );
         },
@@ -121,6 +121,13 @@ class VacinasPet extends StatelessWidget {
                     remove(model);
                   },
                   child: GestureDetector(
+                    onLongPress: (() => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                EditVacinaScreen(vacina: model, petId: petId),
+                          ),
+                        )),
                     onTap: (() => Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -179,7 +186,7 @@ class VacinasPet extends StatelessWidget {
                                             : (petTipo == 'gato' ||
                                                     petTipo == 'Gato'
                                                 ? (petSexo == 'macho' ||
-                                                        petSexo == 'macho'
+                                                        petSexo == 'Macho'
                                                     ? Image.asset(
                                                         'lib/assets/catmachovac-removebg-preview.png')
                                                     : Image.asset(

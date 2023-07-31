@@ -28,7 +28,7 @@ class Pet {
         tipo = map["Tipo"] ?? '',
         sexo = map["Sexo"] ?? '',
         cor = map["Cor"] ?? '',
-        dataNasc = map["Data de Nascemento"] ?? '',
+        dataNasc = map["Data de Nascimento"] ?? '',
         isInteiro = map["Inteiro ou Castrado"] ?? '',
         chip = map["Numero do Chip"] ?? '';
   //Adicionar o peso do Pet

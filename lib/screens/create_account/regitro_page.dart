@@ -18,8 +18,7 @@ class RegistroPage extends StatefulWidget {
 class _RegistroPageState extends State<RegistroPage> {
   //============================================================================
   //Estados Brasil
-
-  final List<String> states = [
+  final dropOptions1 = [
     'Acre',
     'Alagoas',
     'Amapá',
@@ -48,8 +47,7 @@ class _RegistroPageState extends State<RegistroPage> {
     'Sergipe',
     'Tocantins'
   ];
-
-  String? _selectedState;
+  final dropValue1 = ValueNotifier('');
 
   //============================================================================
 
@@ -667,43 +665,61 @@ class _RegistroPageState extends State<RegistroPage> {
                       Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
-                        child: TextFormField(
-                          controller: _estadoController,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            labelText: 'Estado',
-                            hintStyle: FlutterFlowTheme.of(context).bodyLarge,
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0xFFD0D5DD),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0xFFD0D5DD),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0xFFFDA29B),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0xFFFDA29B),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                          style: FlutterFlowTheme.of(context).bodyLarge,
-                        ),
+                        child: ValueListenableBuilder(
+                            valueListenable: dropValue1,
+                            builder: (BuildContext context, String value, _) {
+                              return DropdownButtonFormField<String>(
+                                hint: const Text("Selecione o Estado"),
+                                value: (value.isEmpty) ? null : value,
+                                items: dropOptions1
+                                    .map((opcao) => DropdownMenuItem(
+                                        value: opcao, child: Text(opcao)))
+                                    .toList(),
+                                onChanged: (escolha) {
+                                  dropValue1.value = escolha.toString();
+                                  _estadoController.text = escolha.toString();
+                                },
+                                decoration: InputDecoration(
+                                  labelText: 'Estado',
+                                  hintStyle:
+                                      FlutterFlowTheme.of(context).bodyLarge,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0xFFD0D5DD),
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0xFFD0D5DD),
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0xFFFDA29B),
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0xFFFDA29B),
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyLarge,
+                                validator: (value1) {
+                                  if (value1 != null && value1.isEmpty) {
+                                    return 'Selecione o Estado';
+                                  }
+                                },
+                              );
+                            }),
                       ),
                       //===========================================================================================
                       //CEP

@@ -6,7 +6,6 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:pet_app/components/id.dart';
 import 'package:pet_app/models/vacinas.dart';
 import 'package:pet_app/models/vermifugos.dart';
-import 'package:pet_app/screens/vacina/add_vacinas_screen.dart';
 import 'package:pet_app/screens/vermifugos/add_vermifugos_screen.dart';
 
 import '../create_account/flutter_flow_icon_button.dart';

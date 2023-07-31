@@ -123,8 +123,8 @@ class PetDetalhes extends StatelessWidget {
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(8),
-                                      child: Image.network(
-                                        'https://img.icons8.com/?size=512&id=rRg5dpYQ1XlF&format=png',
+                                      child: Image.asset(
+                                        'lib/assets/vacinabk.png',
                                         height: 100,
                                         fit: BoxFit.cover,
                                       ),
@@ -184,8 +184,8 @@ class PetDetalhes extends StatelessWidget {
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(8),
-                                      child: Image.network(
-                                        'https://img.icons8.com/?size=512&id=5pOiloZUygM1&format=png',
+                                      child: Image.asset(
+                                        'lib/assets/vermifugo.png',
                                         height: 100,
                                         fit: BoxFit.cover,
                                       ),
