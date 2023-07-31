@@ -99,6 +99,7 @@ flutter:
     - lib/assets/catmachovac-removebg-preview.png
     - lib/assets/vermifugo.png
     - lib/assets/vacinabk.png
+    - lib/assets/animation_lkreu8c0_small.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -765,28 +765,28 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                       child: FFButtonWidget(
                         onPressed: () {
                           print(imageURL);
-
                           if (_formKey.currentState!.validate()) {
                             if (imageURL.isEmpty) {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                      content:
-                                          Text('Faça o upload da imagem')));
+                                const SnackBar(
+                                    content: Text('Faça o upload da imagem')),
+                              );
+                            } else {
+                              cadastroVacinas(
+                                nameController.text.trim(),
+                                gerarVacID(),
+                                dataAplicadaController.text.trim(),
+                                proximaAplicacaoController.text.trim(),
+                                pesoController.text.trim(),
+                                loteController.text.trim(),
+                                farmaceuticaController.text.trim(),
+                                dataValidadeController.text.trim(),
+                                nomeVetController.text.trim(),
+                                crmvController.text.trim(),
+                                imageURL,
+                              );
+                              Navigator.pop(context);
                             }
-                            cadastroVacinas(
-                              nameController.text.trim(),
-                              gerarVacID(),
-                              dataAplicadaController.text.trim(),
-                              proximaAplicacaoController.text.trim(),
-                              pesoController.text.trim(),
-                              loteController.text.trim(),
-                              farmaceuticaController.text.trim(),
-                              dataValidadeController.text.trim(),
-                              nomeVetController.text.trim(),
-                              crmvController.text.trim(),
-                              imageURL,
-                            );
-                            Navigator.pop(context);
                           }
                         },
                         text: 'Adicione',

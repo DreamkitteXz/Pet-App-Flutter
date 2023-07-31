@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:pet_app/models/Pet.dart';
 import 'package:pet_app/screens/Pet/pet_screen.dart';
 
+import '../create_account/rdit_details.dart';
 import 'cadastro_pet.dart';
 import '../create_account/flutter_flow_theme.dart';
 import 'edit_pet_details.dart';
@@ -59,9 +60,10 @@ class _CadastroPetState extends State<CadastroPet> {
         body: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
+            // Generated code for this Container Widget...
             Container(
               width: double.infinity,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(
@@ -75,45 +77,79 @@ class _CadastroPetState extends State<CadastroPet> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(16, 32, 16, 12),
+                    padding: EdgeInsetsDirectional.fromSTEB(16, 42, 16, 24),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Expanded(
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                12, 12, 0, 0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Meus pets',
-                                  style: FlutterFlowTheme.of(context)
-                                      .headlineMedium
-                                      .override(
-                                        fontFamily: 'Outfit',
-                                        color: const Color(0xFF15161E),
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Meus pets',
+                                      style: FlutterFlowTheme.of(context)
+                                          .headlineMedium
+                                          .override(
+                                            fontFamily: 'Outfit',
+                                            color: Color(0xFF15161E),
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                    ),
+                                    Text(
+                                      'Seus pets cadastrados estão logo abaixo',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .override(
+                                            fontFamily: 'Outfit',
+                                            color: Color(0xFF14181B),
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                    ),
+                                  ],
                                 ),
-                                Text(
-                                  'Seus pets cadastrados estão logo abaixo',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'Outfit',
-                                        color: const Color(0xFF14181B),
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.normal,
+                              ),
+                              GestureDetector(
+                                onTap: (() => Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => EditDatails(),
                                       ),
-                                )
-                              ],
-                            ),
+                                    )),
+                                child: Container(
+                                  width: 42,
+                                  height: 42,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFFDADADA),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 4,
+                                        color: Color(0x33000000),
+                                        offset: Offset(0, 2),
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(32),
+                                  ),
+                                  child: Icon(
+                                    Icons.person,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 18,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
@@ -122,6 +158,7 @@ class _CadastroPetState extends State<CadastroPet> {
                 ],
               ),
             ),
+
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
