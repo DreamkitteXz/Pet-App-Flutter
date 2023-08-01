@@ -5,6 +5,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
+import 'package:pet_app/screens/vacina/vacinas_screen.dart';
 
 import '../../components/id.dart';
 import '../create_account/flutter_flow_icon_button.dart';
@@ -785,6 +786,7 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                                 crmvController.text.trim(),
                                 imageURL,
                               );
+
                               Navigator.pop(context);
                             }
                           }
@@ -816,6 +818,7 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
       ),
     );
   }
+
   // ===============================================================
   // Função DataPicker e Função de formatação para aparecer na Tela
 

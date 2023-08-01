@@ -181,7 +181,7 @@ class _EditDatailsState extends State<EditDatails> {
 
                       // titulo
                       Text(
-                        'Crie sua conta',
+                        'Edite seu perfil',
                         style: FlutterFlowTheme.of(context).displaySmall,
                       ),
 
@@ -190,7 +190,7 @@ class _EditDatailsState extends State<EditDatails> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 24),
                         child: Text(
-                          'Preencha os campos abaixo para criar sua conta',
+                          'Altere os campos abaixo para editar seu perfil',
                           style: FlutterFlowTheme.of(context).labelMedium,
                         ),
                       ),
@@ -837,7 +837,7 @@ class _EditDatailsState extends State<EditDatails> {
                                   ));
                             }
                           },
-                          text: 'Crie sua conta',
+                          text: 'Editar',
                           options: FFButtonOptions(
                             width: 370,
                             height: 44,
