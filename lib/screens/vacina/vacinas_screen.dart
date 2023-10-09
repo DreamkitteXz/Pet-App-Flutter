@@ -6,12 +6,13 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:pet_app/components/id.dart';
 import 'package:pet_app/models/vacinas.dart';
 import 'package:pet_app/screens/vacina/vacinas_detalhes.dart';
+
 import '../create_account/flutter_flow_icon_button.dart';
 import '../create_account/flutter_flow_theme.dart';
 import 'add_vacina.dart';
 import 'edit_vacina.dart';
 
-class VacinasPet extends StatefulWidget {
+class VacinasPet extends StatelessWidget {
   final String? petId;
   final String? petSexo;
   final String? petTipo;
@@ -19,25 +20,17 @@ class VacinasPet extends StatefulWidget {
   const VacinasPet({this.petId, this.petSexo, this.petTipo});
 
   @override
-  State<VacinasPet> createState() => _VacinasPetState();
-}
-
-class _VacinasPetState extends State<VacinasPet> {
-  bool isLoading = true;
-  List<Vacinas> listVac = [];
-
-  @override
-  void initState() {
-    super.initState();
-    loadData();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF1F4F8),
       appBar: AppBar(
-        title: const Text('Vacinas'),
+        title: Text(
+          'Vacinas',
+          style: FlutterFlowTheme.of(context).headlineMedium.override(
+                fontFamily: 'Outfit',
+                fontWeight: FontWeight.w600,
+              ),
+        ),
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
@@ -63,7 +56,7 @@ class _VacinasPetState extends State<VacinasPet> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => AddVacinaWidget(petId: widget.petId),
+              builder: (context) => AddVacinaWidget(petId: petId),
             ),
           );
         },
@@ -80,26 +73,16 @@ class _VacinasPetState extends State<VacinasPet> {
             .collection('Users')
             .doc(FirebaseAuth.instance.currentUser!.uid)
             .collection('Pets')
-            .doc(widget.petId)
+            .doc(petId)
             .collection("Vacinas")
             .snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-          if (isLoading) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          if (listVac.isEmpty) {
-            return Center(
-              child: const Text("Nenhuma vacina cadastrada ainda."),
-            );
-          }
-
           if (!snapshot.hasData) {
-            return const Text("Nenhuma vacina cadastrada ainda.");
+            return Center(child: CircularProgressIndicator());
+            ;
           }
 
-          listVac = snapshot.data!.docs.map((document) {
+          List<Vacinas> listVac = snapshot.data!.docs.map((document) {
             Map<String, dynamic> data = document.data() as Map<String, dynamic>;
             print(data);
             return Vacinas.fromMap(data);
@@ -109,6 +92,7 @@ class _VacinasPetState extends State<VacinasPet> {
             itemCount: listVac.length,
             itemBuilder: (context, index) {
               Vacinas model = listVac[index];
+              print(model.vacina);
               return Dismissible(
                   key: ValueKey<Vacinas>(model),
                   direction: DismissDirection.endToStart,
@@ -148,8 +132,8 @@ class _VacinasPetState extends State<VacinasPet> {
                     onLongPress: (() => Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => EditVacinaScreen(
-                                vacina: model, petId: widget.petId),
+                            builder: (context) =>
+                                EditVacinaScreen(petId: petId, vacina: model),
                           ),
                         )),
                     onTap: (() => Navigator.push(
@@ -199,19 +183,18 @@ class _VacinasPetState extends State<VacinasPet> {
                                           borderRadius:
                                               BorderRadius.circular(12),
                                         ),
-                                        child: widget.petTipo == 'cachorro' ||
-                                                widget.petTipo == 'Cachorro'
-                                            ? (widget.petSexo == 'macho' ||
-                                                    widget.petSexo == 'Macho'
+                                        child: petTipo == 'cachorro' ||
+                                                petTipo == 'Cachorro'
+                                            ? (petSexo == 'macho' ||
+                                                    petSexo == 'Macho'
                                                 ? Image.asset(
                                                     'lib/assets/vacinadogmacho-removebg-preview.png')
                                                 : Image.asset(
                                                     'lib/assets/vacinadog-removebg-preview.png'))
-                                            : (widget.petTipo == 'gato' ||
-                                                    widget.petTipo == 'Gato'
-                                                ? (widget.petSexo == 'macho' ||
-                                                        widget.petSexo ==
-                                                            'Macho'
+                                            : (petTipo == 'gato' ||
+                                                    petTipo == 'Gato'
+                                                ? (petSexo == 'macho' ||
+                                                        petSexo == 'macho'
                                                     ? Image.asset(
                                                         'lib/assets/catmachovac-removebg-preview.png')
                                                     : Image.asset(
@@ -299,50 +282,17 @@ class _VacinasPetState extends State<VacinasPet> {
         },
       ),
     );
+    ;
   }
 
-  void loadData() async {
-    try {
-      // Your code to load data from Firestore
-      var snapshot = await FirebaseFirestore.instance
-          .collection('Users')
-          .doc(FirebaseAuth.instance.currentUser!.uid)
-          .collection('Pets')
-          .doc(widget.petId)
-          .collection("Vacinas")
-          .get();
-
-      listVac = snapshot.docs.map((document) {
-        Map<String, dynamic> data = document.data() as Map<String, dynamic>;
-        return Vacinas.fromMap(data);
-      }).toList();
-
-      setState(() {
-        isLoading = false;
-      });
-    } catch (e) {
-      setState(() {
-        isLoading = false;
-      });
-      print('Error loading data: $e');
-    }
-  }
-
-  void remove(Vacinas model) async {
-    try {
-      await FirebaseFirestore.instance
-          .collection("Users")
-          .doc(FirebaseAuth.instance.currentUser!.uid)
-          .collection("Pets")
-          .doc(widget.petId)
-          .collection("Vacinas")
-          .doc(model.id)
-          .delete();
-
-      // After deleting a vaccine, reload the data
-      loadData();
-    } catch (e) {
-      print('Error deleting vaccine: $e');
-    }
+  void remove(Vacinas model) {
+    FirebaseFirestore.instance
+        .collection("Users")
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .collection("Pets")
+        .doc(petId)
+        .collection("Vacinas")
+        .doc(model.id)
+        .delete();
   }
 }

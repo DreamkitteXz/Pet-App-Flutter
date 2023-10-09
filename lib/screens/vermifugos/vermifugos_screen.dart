@@ -1,26 +1,32 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:pet_app/components/id.dart';
-import 'package:pet_app/models/vacinas.dart';
 import 'package:pet_app/models/vermifugos.dart';
 import 'package:pet_app/screens/vermifugos/add_vermifugos_screen.dart';
+import 'package:pet_app/screens/vermifugos/vermifugos_detalhes.dart';
 
 import '../create_account/flutter_flow_icon_button.dart';
 import '../create_account/flutter_flow_theme.dart';
 
 class VermifugoPet extends StatelessWidget {
   final String? petId;
-  const VermifugoPet({this.petId});
+  final String? petSexo;
+  final String? petNome;
+  const VermifugoPet(
+      {this.petId, required this.petSexo, required this.petNome});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF1F4F8),
       appBar: AppBar(
-        title: const Text('Vermífugos'),
+        title: Text(
+          'Vermífugos',
+          style: FlutterFlowTheme.of(context).headlineMedium.override(
+                fontFamily: 'Outfit',
+                fontWeight: FontWeight.w600,
+              ),
+        ),
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
@@ -68,7 +74,7 @@ class VermifugoPet extends StatelessWidget {
             .snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (!snapshot.hasData) {
-            return const Text("Nenhuma vacina cadastrada ainda.");
+            return const Center(child: CircularProgressIndicator());
           }
 
           List<Vermifugos> listVer = snapshot.data!.docs.map((document) {
@@ -118,6 +124,13 @@ class VermifugoPet extends StatelessWidget {
                     remove(model);
                   },
                   child: GestureDetector(
+                    onTap: (() => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                VermifugoWidget(vermifugos: model),
+                          ),
+                        )),
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
                       child: Container(
@@ -236,7 +249,7 @@ class VermifugoPet extends StatelessWidget {
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .collection("Pets")
         .doc(petId)
-        .collection("Vacinas")
+        .collection("Vermifugos")
         .doc(model.id)
         .delete();
   }

@@ -98,6 +98,15 @@ class _EditPetDetailsState extends State<EditPetDetails> {
 //=================================================================
   final _formKey = GlobalKey<FormState>();
 
+  final dropOptions1 = ['Cachorro', 'Gato'];
+  final dropValue1 = ValueNotifier('');
+
+  final dropOptions2 = ['Fêmea', 'Macho'];
+  final dropValue2 = ValueNotifier('');
+
+  final dropOptions3 = ['Inteiro', 'Castrado'];
+  final dropValue3 = ValueNotifier('');
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -199,46 +208,60 @@ class _EditPetDetailsState extends State<EditPetDetails> {
                       Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
-                        child: TextFormField(
-                            controller: _tipoController,
-                            obscureText: false,
-                            decoration: InputDecoration(
-                              labelText: 'Tipo',
-                              hintStyle: FlutterFlowTheme.of(context).bodyLarge,
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                  color: Color(0xFFD0D5DD),
-                                  width: 2,
+                        child: ValueListenableBuilder(
+                            valueListenable: dropValue1,
+                            builder: (BuildContext context, String value, _) {
+                              return DropdownButtonFormField<String>(
+                                hint: const Text("Selecione o Tipo"),
+                                value: (value.isEmpty) ? null : value,
+                                items: dropOptions1
+                                    .map((opcao) => DropdownMenuItem(
+                                        value: opcao, child: Text(opcao)))
+                                    .toList(),
+                                onChanged: (escolha) {
+                                  dropValue1.value = escolha.toString();
+                                  _tipoController.text = escolha.toString();
+                                },
+                                decoration: InputDecoration(
+                                  labelText: 'Tipo',
+                                  hintStyle:
+                                      FlutterFlowTheme.of(context).bodyLarge,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0xFFD0D5DD),
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0xFFD0D5DD),
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0xFFFDA29B),
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0xFFFDA29B),
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
                                 ),
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                  color: Color(0xFFD0D5DD),
-                                  width: 2,
-                                ),
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              errorBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                  color: Color(0xFFFDA29B),
-                                  width: 2,
-                                ),
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              focusedErrorBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                  color: Color(0xFFFDA29B),
-                                  width: 2,
-                                ),
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                            ),
-                            style: FlutterFlowTheme.of(context).bodyLarge,
-                            validator: (value) {
-                              if (value != null && value.isEmpty) {
-                                return 'Insira o Tipo';
-                              }
+                                style: FlutterFlowTheme.of(context).bodyLarge,
+                                validator: (value1) {
+                                  if (value1 != null && value1.isEmpty) {
+                                    return 'Insira o Tipo';
+                                  }
+                                },
+                              );
                             }),
                       ),
                       Padding(
@@ -336,48 +359,61 @@ class _EditPetDetailsState extends State<EditPetDetails> {
                       Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
-                        child: TextFormField(
-                          controller: _sexoController,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            labelText: 'Sexo',
-                            hintStyle: FlutterFlowTheme.of(context).bodyLarge,
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0xFFD0D5DD),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0xFFD0D5DD),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0xFFFDA29B),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0xFFFDA29B),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                          style: FlutterFlowTheme.of(context).bodyLarge,
-                          validator: (value) {
-                            if (value != null && value.isEmpty) {
-                              return 'Insira o Sexo';
-                            }
-                          },
-                        ),
+                        child: ValueListenableBuilder(
+                            valueListenable: dropValue2,
+                            builder: (BuildContext context, String value, _) {
+                              return DropdownButtonFormField<String>(
+                                hint: const Text("Selecione o Sexo"),
+                                value: (value.isEmpty) ? null : value,
+                                items: dropOptions2
+                                    .map((opcao) => DropdownMenuItem(
+                                        value: opcao, child: Text(opcao)))
+                                    .toList(),
+                                onChanged: (escolha) {
+                                  dropValue2.value = escolha.toString();
+                                  _sexoController.text = escolha.toString();
+                                },
+                                decoration: InputDecoration(
+                                  labelText: 'Sexo',
+                                  hintStyle:
+                                      FlutterFlowTheme.of(context).bodyLarge,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0xFFD0D5DD),
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0xFFD0D5DD),
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0xFFFDA29B),
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0xFFFDA29B),
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyLarge,
+                                validator: (value) {
+                                  if (value != null && value.isEmpty) {
+                                    return 'Insira o Sexo';
+                                  }
+                                },
+                              );
+                            }),
                       ),
                       Padding(
                         padding:
@@ -432,48 +468,62 @@ class _EditPetDetailsState extends State<EditPetDetails> {
                       Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
-                        child: TextFormField(
-                          controller: _isInteiroController,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            labelText: 'Inteiro ou Castrado?',
-                            hintStyle: FlutterFlowTheme.of(context).bodyLarge,
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0xFFD0D5DD),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0xFFD0D5DD),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0xFFFDA29B),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0xFFFDA29B),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                          style: FlutterFlowTheme.of(context).bodyLarge,
-                          validator: (value) {
-                            if (value != null && value.isEmpty) {
-                              return 'Informe se o seu Pet é castrado ou Inteiro';
-                            }
-                          },
-                        ),
+                        child: ValueListenableBuilder(
+                            valueListenable: dropValue3,
+                            builder: (BuildContext context, String value, _) {
+                              return DropdownButtonFormField<String>(
+                                hint: const Text("Inteiro ou Castrado?"),
+                                value: (value.isEmpty) ? null : value,
+                                items: dropOptions3
+                                    .map((opcao) => DropdownMenuItem(
+                                        value: opcao, child: Text(opcao)))
+                                    .toList(),
+                                onChanged: (escolha) {
+                                  dropValue3.value = escolha.toString();
+                                  _isInteiroController.text =
+                                      escolha.toString();
+                                },
+                                decoration: InputDecoration(
+                                  labelText: 'Inteiro ou Castrado?',
+                                  hintStyle:
+                                      FlutterFlowTheme.of(context).bodyLarge,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0xFFD0D5DD),
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0xFFD0D5DD),
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0xFFFDA29B),
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: Color(0xFFFDA29B),
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyLarge,
+                                validator: (value) {
+                                  if (value != null && value.isEmpty) {
+                                    return 'Informe se o seu Pet é castrado ou Inteiro';
+                                  }
+                                },
+                              );
+                            }),
                       ),
                       Padding(
                         padding:

@@ -60,7 +60,6 @@ class _CadastroPetState extends State<CadastroPet> {
         body: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            // Generated code for this Container Widget...
             Container(
               width: double.infinity,
               decoration: BoxDecoration(
@@ -158,7 +157,6 @@ class _CadastroPetState extends State<CadastroPet> {
                 ],
               ),
             ),
-
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -175,7 +173,7 @@ class _CadastroPetState extends State<CadastroPet> {
                   builder: (BuildContext context,
                       AsyncSnapshot<QuerySnapshot> snapshot) {
                     if (!snapshot.hasData) {
-                      return const Text("Nenhum pet cadastrado ainda.");
+                      return const Center(child: CircularProgressIndicator());
                     }
 
                     List<Pet> listPet = snapshot.data!.docs.map((document) {
@@ -246,7 +244,7 @@ class _CadastroPetState extends State<CadastroPet> {
                                     ),
                                   )),
                               child: Padding(
-                                padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
+                                padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                 child: Container(
                                   width: MediaQuery.of(context).size.width,
                                   height: 100,

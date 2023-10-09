@@ -53,8 +53,6 @@ class _EditDatailsState extends State<EditDatails> {
 
   //Text Controllers para o Envio dos dados
 
-  final _emailController = TextEditingController();
-  final _senhaController = TextEditingController();
   final _nomeController = TextEditingController();
   final _cpfController = TextEditingController();
   final _telefoneController = TextEditingController();
@@ -67,27 +65,13 @@ class _EditDatailsState extends State<EditDatails> {
 
   Future signIn() async {
     //Auth
-    try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: _emailController.text.trim(),
-          password: _senhaController.text.trim());
-    } on FirebaseAuthException catch (e) {
-      switch (e.code) {
-        case "email-already-in-use":
-          return showSnackBar(
-              context: context, texto: "Email já esta em uso.", isError: true);
-      }
-      return e.code;
-    }
 
     //Adicionar Dados do Usuário
 
-    addUserdatalhes(
+    editUserdatalhes( 
         _nomeController.text.trim(),
-        _emailController.text.trim(),
         _cpfController.text.trim(),
         _telefoneController.text.trim(),
-        _senhaController.text.trim(),
         _ruaController.text.trim(),
         _bairroController.text.trim(),
         _cepController.text.trim(),
@@ -119,8 +103,6 @@ class _EditDatailsState extends State<EditDatails> {
 
   @override
   void dispose() {
-    _emailController.dispose();
-    _senhaController.dispose();
     _nomeController.dispose();
     _cpfController.dispose();
     _telefoneController.dispose();
@@ -247,64 +229,6 @@ class _EditDatailsState extends State<EditDatails> {
                       ),
 
                       //===========================================================================================
-                      //Email
-
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
-                        child: TextFormField(
-                          controller: _emailController,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            labelText: 'E-mail',
-                            hintText: 'exemplo@gmail.com',
-                            hintStyle: FlutterFlowTheme.of(context).bodyLarge,
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0xFFD0D5DD),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0xFFD0D5DD),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0xFFFDA29B),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0xFFFDA29B),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                          style: FlutterFlowTheme.of(context).bodyLarge,
-                          validator: (value) {
-                            if (value != null && value.isEmpty) {
-                              return 'Insira o E-mail';
-                            }
-
-                            // Utilizando a função EmailValidator.validate do pacote email_validator
-                            if (value != null &&
-                                !EmailValidator.validate(value)) {
-                              return 'E-mail inválido';
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
-
-                      //===========================================================================================
                       //CPF
 
                       Padding(
@@ -420,71 +344,6 @@ class _EditDatailsState extends State<EditDatails> {
                               }
                               return null;
                             }),
-                      ),
-
-                      //===========================================================================================
-                      //Senha
-
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
-                        child: TextFormField(
-                          controller: _senhaController,
-                          obscureText: !_passwordVisible,
-                          decoration: InputDecoration(
-                            labelText: 'Senha',
-                            hintStyle: FlutterFlowTheme.of(context).bodyLarge,
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0xFFD0D5DD),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0xFFD0D5DD),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0xFFFDA29B),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0xFFFDA29B),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            suffixIcon: InkWell(
-                              onTap: () => setState(
-                                () => _passwordVisible = !_passwordVisible,
-                              ),
-                              focusNode: FocusNode(skipTraversal: true),
-                              child: Icon(
-                                _passwordVisible
-                                    ? Icons.visibility_outlined
-                                    : Icons.visibility_off_outlined,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 22,
-                              ),
-                            ),
-                          ),
-                          style: FlutterFlowTheme.of(context).bodyLarge,
-                          validator: (String? value) {
-                            if (value != null && value.isEmpty) {
-                              return 'Insira a Senha';
-                            }
-                            return null;
-                          },
-                        ),
                       ),
 
                       //===========================================================================================

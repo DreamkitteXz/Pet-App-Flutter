@@ -1,16 +1,15 @@
 import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
-import 'package:pet_app/screens/vacina/vacinas_screen.dart';
 
 import '../../components/id.dart';
 import '../create_account/flutter_flow_icon_button.dart';
 import '../create_account/flutter_flow_theme.dart';
-
 import '../create_account/flutter_flow_widgets.dart';
 
 class AddVacinaWidget extends StatefulWidget {
@@ -32,6 +31,10 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
   final loteController = TextEditingController();
   final farmaceuticaController = TextEditingController();
   final dataValidadeController = TextEditingController();
+  final observacoesController = TextEditingController();
+  final _cnpjController = TextEditingController();
+  final _clinicaController = TextEditingController();
+  final _enderecoController = TextEditingController();
 
   DateTime? _selectedDate;
 
@@ -39,18 +42,21 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
   // Função de cadastro Vacina Firebase
 
   Future cadastroVacinas(
-    String vacina,
-    String id,
-    String dataAplicacao,
-    String proximaAplicacao,
-    String pesoAplicacao,
-    String lote,
-    String farmaceutica,
-    String dataValidade,
-    String nomeVet,
-    String crmv,
-    String imagemRotulo,
-  ) async {
+      String vacina,
+      String id,
+      String dataAplicacao,
+      String proximaAplicacao,
+      String pesoAplicacao,
+      String lote,
+      String farmaceutica,
+      String dataValidade,
+      String nomeVet,
+      String crmv,
+      String imagemRotulo,
+      String observacoes,
+      String cnpj,
+      String clinica,
+      String endereco) async {
     await FirebaseFirestore.instance
         .collection("Users")
         .doc(FirebaseAuth.instance.currentUser!.uid)
@@ -70,6 +76,10 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
       "Nome do Veterinário(a)": nomeVet,
       "CRMV do Veterinário(a)": crmv,
       "Imagem do Rótulo": imagemRotulo,
+      "Observações": observacoes,
+      "CNPJ": cnpj,
+      "Clínica": clinica,
+      "Endereço": endereco
     });
   }
 
@@ -106,9 +116,9 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: AlignmentDirectional(0, 0),
+            alignment: const AlignmentDirectional(0, 0),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(32, 32, 32, 32),
+              padding: const EdgeInsetsDirectional.fromSTEB(32, 32, 32, 32),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -123,7 +133,8 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                           ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 24),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 24),
                       child: Text(
                         'Preencha os campos abaixo para adicionar uma Vacina.',
                         style: FlutterFlowTheme.of(context).labelMedium,
@@ -132,7 +143,8 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                     // =======================================================================
                     // Nome da vacina
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                       child: TextFormField(
                         controller: nameController,
                         obscureText: false,
@@ -140,28 +152,28 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                           labelText: 'Vacina',
                           hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFD0D5DD),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFD0D5DD),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFFDA29B),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFFDA29B),
                               width: 2,
                             ),
@@ -181,7 +193,8 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                     // Data Aplicada
 
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                       child: TextFormField(
                         readOnly: true,
                         controller: dataAplicadaController,
@@ -190,28 +203,28 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                           labelText: 'Data aplicada',
                           hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFD0D5DD),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFD0D5DD),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFFDA29B),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFFDA29B),
                               width: 2,
                             ),
@@ -242,7 +255,8 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                     // Próxima aplicação
 
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                       child: TextFormField(
                         controller: proximaAplicacaoController,
                         readOnly: true,
@@ -251,28 +265,28 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                           labelText: 'Próxima aplicação',
                           hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFD0D5DD),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFD0D5DD),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFFDA29B),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFFDA29B),
                               width: 2,
                             ),
@@ -281,7 +295,7 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                         ),
                         style: FlutterFlowTheme.of(context).bodyLarge,
                         onTap: () async {
-                          DateTime? pickedDate = await _showDataPicker();
+                          DateTime? pickedDate = await _showDataPickerhoje();
                           if (pickedDate != null) {
                             setState(() {
                               _selectedDate = pickedDate;
@@ -302,7 +316,8 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                     // Peso
 
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                       child: TextFormField(
                         controller: pesoController,
                         obscureText: false,
@@ -311,28 +326,28 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                           labelText: 'Peso no dia da aplicação',
                           hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFD0D5DD),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFD0D5DD),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFFDA29B),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFFDA29B),
                               width: 2,
                             ),
@@ -349,12 +364,28 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                         },
                       ),
                     ),
+                    // =======================================================================
+                    // Texto Rótulo e orientações
+
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                      child: Text(
+                        'Dados da vacina',
+                        style:
+                            FlutterFlowTheme.of(context).displaySmall.override(
+                                  fontFamily: 'Outfit',
+                                  fontSize: 24,
+                                ),
+                      ),
+                    ),
 
                     // =======================================================================
                     // Lote
 
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                       child: TextFormField(
                         controller: loteController,
                         obscureText: false,
@@ -362,28 +393,28 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                           labelText: 'Lote',
                           hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFD0D5DD),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFD0D5DD),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFFDA29B),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFFDA29B),
                               width: 2,
                             ),
@@ -404,7 +435,8 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                     // Farmaceutica
 
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                       child: TextFormField(
                         controller: farmaceuticaController,
                         obscureText: false,
@@ -412,28 +444,28 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                           labelText: 'Farmacêutica',
                           hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFD0D5DD),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFD0D5DD),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFFDA29B),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFFDA29B),
                               width: 2,
                             ),
@@ -454,7 +486,8 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                     // Data Validade
 
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                       child: TextFormField(
                         readOnly: true,
                         controller: dataValidadeController,
@@ -463,28 +496,28 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                           labelText: 'Data de validade',
                           hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFD0D5DD),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFD0D5DD),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFFDA29B),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFFDA29B),
                               width: 2,
                             ),
@@ -512,10 +545,76 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                     ),
 
                     // =======================================================================
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                      child: TextFormField(
+                        controller: observacoesController,
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          labelStyle:
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    fontFamily: 'Outfit',
+                                    color: const Color(0xFF606A85),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                          hintText: 'Observações:',
+                          hintStyle:
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    fontFamily: 'Outfit',
+                                    color: const Color(0xFF606A85),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0xFFE5E7EB),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0xFF6F61EF),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0xFFFF5963),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0xFFFF5963),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                              16, 24, 16, 12),
+                        ),
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Plus Jakarta Sans',
+                              color: const Color(0xFF15161E),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                        maxLines: 16,
+                        minLines: 6,
+                        cursorColor: const Color(0xFF6F61EF),
+                      ),
+                    ),
+                    // =======================================================================
                     // Texto Rótulo e orientações
 
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                       child: Text(
                         'Rótulo da vacina',
                         style:
@@ -578,7 +677,8 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                     // Botão camera Upload
 
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
                       child: FFButtonWidget(
                         onPressed: () async {
                           //==============================================================
@@ -588,9 +688,11 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                               source: ImageSource.camera);
 
                           if (file == null) return;
+                          ;
 
                           String uniqueFileName =
                               DateTime.now().microsecondsSinceEpoch.toString();
+                          print("errorere");
 
                           //==============================================================
                           //Upload para o Firebase Storage
@@ -601,6 +703,7 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                               referenceRoot.child('images');
                           Reference referenceImageToUpload =
                               referenceDirRoot.child(uniqueFileName);
+                          print("erro só");
 
                           //==============================================================
                           //Tratando os erros
@@ -617,21 +720,26 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                                 await referenceImageToUpload.getDownloadURL();
 
                             setState(() {});
-                          } catch (error) {}
+                            print(imageURL);
+                          } catch (error) {
+                            print(
+                                "Erro ao enviar a imagem para o Firebase: $error");
+                          }
 
                           //==============================================================
                         },
                         text: 'Imagen do Rótulo',
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.photo_camera,
                           size: 15,
                         ),
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 44,
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                          padding:
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           iconPadding:
-                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
@@ -639,7 +747,7 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                                     color: Colors.white,
                                   ),
                           elevation: 2,
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Colors.transparent,
                             width: 1,
                           ),
@@ -652,7 +760,8 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                     // Dados do Veterinário text
 
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                       child: Text(
                         'Dados do Veterinário(a)',
                         style:
@@ -664,7 +773,8 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                     ),
                     //==================================================================
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                       child: TextFormField(
                         controller: nomeVetController,
                         obscureText: false,
@@ -672,28 +782,28 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                           labelText: 'Nome',
                           hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFD0D5DD),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFD0D5DD),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFFDA29B),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFFDA29B),
                               width: 2,
                             ),
@@ -713,7 +823,8 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                     //==================================================================
 
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                       child: TextFormField(
                         controller: crmvController,
                         obscureText: false,
@@ -721,28 +832,28 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                           labelText: 'CRMV',
                           hintStyle: FlutterFlowTheme.of(context).bodyLarge,
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFD0D5DD),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFD0D5DD),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFFDA29B),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFFDA29B),
                               width: 2,
                             ),
@@ -761,8 +872,157 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
 
                     //==================================================================
 
+                    //==================================================================
+                    // Dados da Clínica text
+
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                      child: Text(
+                        'Dados da Clínica',
+                        style:
+                            FlutterFlowTheme.of(context).displaySmall.override(
+                                  fontFamily: 'Outfit',
+                                  fontSize: 24,
+                                ),
+                      ),
+                    ),
+                    //==================================================================
+
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                      child: TextFormField(
+                        controller: _cnpjController,
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          labelText: 'CNPJ',
+                          hintStyle: FlutterFlowTheme.of(context).bodyLarge,
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0xFFD0D5DD),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0xFFD0D5DD),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0xFFFDA29B),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0xFFFDA29B),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        style: FlutterFlowTheme.of(context).bodyLarge,
+                      ),
+                    ),
+                    //==================================================================
+                    //==================================================================
+
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                      child: TextFormField(
+                        controller: _clinicaController,
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          labelText: 'Clínica',
+                          hintStyle: FlutterFlowTheme.of(context).bodyLarge,
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0xFFD0D5DD),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0xFFD0D5DD),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0xFFFDA29B),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0xFFFDA29B),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        style: FlutterFlowTheme.of(context).bodyLarge,
+                      ),
+                    ),
+                    //==================================================================
+
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                      child: TextFormField(
+                        controller: _enderecoController,
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          labelText: 'Endereço',
+                          hintStyle: FlutterFlowTheme.of(context).bodyLarge,
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0xFFD0D5DD),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0xFFD0D5DD),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0xFFFDA29B),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0xFFFDA29B),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        style: FlutterFlowTheme.of(context).bodyLarge,
+                      ),
+                    ),
+
+                    //==================================================================
+
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                       child: FFButtonWidget(
                         onPressed: () {
                           print(imageURL);
@@ -774,18 +1034,21 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                               );
                             } else {
                               cadastroVacinas(
-                                nameController.text.trim(),
-                                gerarVacID(),
-                                dataAplicadaController.text.trim(),
-                                proximaAplicacaoController.text.trim(),
-                                pesoController.text.trim(),
-                                loteController.text.trim(),
-                                farmaceuticaController.text.trim(),
-                                dataValidadeController.text.trim(),
-                                nomeVetController.text.trim(),
-                                crmvController.text.trim(),
-                                imageURL,
-                              );
+                                  nameController.text.trim(),
+                                  gerarVacID(),
+                                  dataAplicadaController.text.trim(),
+                                  proximaAplicacaoController.text.trim(),
+                                  pesoController.text.trim(),
+                                  loteController.text.trim(),
+                                  farmaceuticaController.text.trim(),
+                                  dataValidadeController.text.trim(),
+                                  nomeVetController.text.trim(),
+                                  crmvController.text.trim(),
+                                  imageURL,
+                                  observacoesController.text.trim(),
+                                  _cnpjController.text.trim(),
+                                  _clinicaController.text.trim(),
+                                  _enderecoController.text.trim());
 
                               Navigator.pop(context);
                             }
@@ -795,9 +1058,10 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                         options: FFButtonOptions(
                           width: 370,
                           height: 44,
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                          padding:
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           iconPadding:
-                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
@@ -838,4 +1102,15 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
     return picked;
   }
   //===============================================================
+
+  Future<DateTime?> _showDataPickerhoje() async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: _selectedDate ?? DateTime.now(),
+      firstDate: DateTime.now(),
+      lastDate: DateTime(DateTime.now().year + 1),
+    );
+
+    return picked;
+  }
 }

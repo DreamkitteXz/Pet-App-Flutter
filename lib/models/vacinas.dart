@@ -10,6 +10,10 @@ class Vacinas {
   String dataValidade;
   String nomeVet;
   String crmv;
+  String observacoes;
+  String? cnpj;
+  String? clinica;
+  String? endereco;
 
   Vacinas(
       {required this.id,
@@ -22,7 +26,11 @@ class Vacinas {
       required this.farmaceutica,
       required this.dataValidade,
       required this.nomeVet,
-      required this.crmv});
+      required this.crmv,
+      required this.observacoes,
+      this.cnpj,
+      this.clinica,
+      this.endereco});
 
   Vacinas.fromMap(Map<String, dynamic> map)
       : id = map["Id"] ?? '',
@@ -35,7 +43,11 @@ class Vacinas {
         farmaceutica = map["Farmaceutica"] ?? '',
         dataValidade = map["Data de Validade"] ?? '',
         nomeVet = map["Nome do Veterinário(a)"] ?? '',
-        crmv = map["CRMV do Veterinário(a)"] ?? '';
+        crmv = map["CRMV do Veterinário(a)"] ?? '',
+        observacoes = map["Observações"] ?? '',
+        cnpj = map["CNPJ"] ?? '',
+        clinica = map["Clínica"] ?? '',
+        endereco = map["Endereço"] ?? '';
 
   Map<String, dynamic> toMap() {
     return {
@@ -50,6 +62,10 @@ class Vacinas {
       "Data de Validade": dataValidade,
       "Nome do Veterinário(a)": nomeVet,
       "CRMV do Veterinário(a)": crmv,
+      "Observações": observacoes,
+      "CNPJ": cnpj,
+      "Clínica": clinica,
+      "Endereço": endereco
     };
   }
 }

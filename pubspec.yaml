@@ -62,6 +62,26 @@ dependencies:
   signature: ^5.4.0
   flutter_animate: ^4.2.0+1
   dropdown_button2: ^2.1.4
+  flutter_native_splash: ^2.2.19
+  flutter_launcher_icons: ^0.13.1
+  pdf: ^3.10.1
+  open_file: ^3.3.2
+  path_provider: ^2.1.1
+  syncfusion_flutter_pdf: ^23.1.36
+
+flutter_native_splash:
+  color: "4E4D9C"
+  image: "assets/app/icon_png.png"
+  android: true
+  ios: true
+
+flutter_icons:
+  image_path: "assets/app/icon_png.png"
+  ios: true 
+  remove_alpha_ios: true 
+  android: "launcher_icon"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/app/icon.png"
 
 dev_dependencies:
   flutter_test:
@@ -100,6 +120,8 @@ flutter:
     - lib/assets/vermifugo.png
     - lib/assets/vacinabk.png
     - lib/assets/animation_lkreu8c0_small.gif
+    - assets/app/icon_png.png
+    - lib/assets/OpenSans-Regular.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -112,10 +134,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: lib/assets/OpenSans-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

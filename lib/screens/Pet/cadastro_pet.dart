@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../../components/id.dart';
@@ -37,6 +38,28 @@ class _AddPetWidgetState extends State<AddPetWidget> {
 
   final dropOptions3 = ['Inteiro', 'Castrado'];
   final dropValue3 = ValueNotifier('');
+
+  DateTime? _selectedDate;
+
+  // ===============================================================
+  // Função DataPicker e Função de formatação para aparecer na Tela
+
+  String formatDateToString(DateTime? date) {
+    if (date == null) return '';
+    return DateFormat('dd/MM/yyyy').format(date);
+  }
+
+  Future<DateTime?> _showDataPickernasc() async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: _selectedDate ?? DateTime.now(),
+      firstDate: DateTime(DateTime.now().year - 20),
+      lastDate: DateTime.now(),
+    );
+
+    return picked;
+  }
+  //===============================================================
 
   @override
   Widget build(BuildContext context) {
@@ -351,9 +374,7 @@ class _AddPetWidgetState extends State<AddPetWidget> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                         child: TextFormField(
-                          inputFormatters: [
-                            MaskTextInputFormatter(mask: '##/##/####')
-                          ],
+                          readOnly: true,
                           controller: _dataNascController,
                           obscureText: false,
                           decoration: InputDecoration(
@@ -389,6 +410,16 @@ class _AddPetWidgetState extends State<AddPetWidget> {
                               borderRadius: BorderRadius.circular(12),
                             ),
                           ),
+                          onTap: () async {
+                            DateTime? pickedDate = await _showDataPickernasc();
+                            if (pickedDate != null) {
+                              setState(() {
+                                _selectedDate = pickedDate;
+                                _dataNascController.text =
+                                    formatDateToString(pickedDate);
+                              });
+                            }
+                          },
                           style: FlutterFlowTheme.of(context).bodyLarge,
                           validator: (value) {
                             if (value != null && value.isEmpty) {

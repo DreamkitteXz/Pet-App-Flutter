@@ -49,6 +49,33 @@ Future addUserdatalhes(
   });
 }
 
+Future editUserdatalhes(
+    String nome,
+    String cpf,
+    String telefone,
+    String rua,
+    String bairro,
+    String cep,
+    String estado,
+    String numero,
+    String complemento) async {
+  await FirebaseFirestore.instance
+      .collection("Users")
+      .doc(FirebaseAuth.instance.currentUser!.uid)
+      .set({
+    "Id": FirebaseAuth.instance.currentUser!.uid,
+    "Nome": nome,
+    "CPF": cpf,
+    "Telefone": telefone,
+    "Rua": rua,
+    "Bairro": bairro,
+    "CEP": cep,
+    "Estado": estado,
+    "Numero": numero,
+    "Complemento": complemento,
+  });
+}
+
 Future cadastroPet(
     String idPet,
     String name,

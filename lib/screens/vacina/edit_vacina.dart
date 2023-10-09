@@ -13,6 +13,7 @@ import 'package:pet_app/components/data_picker.dart';
 import 'package:signature/signature.dart';
 
 import '../../components/id.dart';
+import '../create_account/flutter_flow_icon_button.dart';
 import '../create_account/flutter_flow_theme.dart';
 import '../create_account/flutter_flow_widgets.dart';
 
@@ -121,6 +122,24 @@ class _EditVacinaScreenState extends State<EditVacinaScreen> {
     return Form(
       key: _formKey,
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          automaticallyImplyLeading: false,
+          leading: FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30,
+            borderWidth: 1,
+            buttonSize: 60,
+            icon: Icon(
+              Icons.arrow_back_rounded,
+              color: FlutterFlowTheme.of(context).secondaryText,
+              size: 30,
+            ),
+            onPressed: () async {
+              Navigator.pop(context);
+            },
+          ),
+        ),
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         body: SafeArea(
           top: true,
@@ -135,7 +154,7 @@ class _EditVacinaScreenState extends State<EditVacinaScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Adicione uma Vacina',
+                      'Editar a vacina',
                       style: FlutterFlowTheme.of(context).displaySmall.override(
                             fontFamily: 'Outfit',
                             fontSize: 30,
@@ -144,7 +163,7 @@ class _EditVacinaScreenState extends State<EditVacinaScreen> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 24),
                       child: Text(
-                        'Preencha os campos abaixo para adicionar uma Vacina.',
+                        'Preencha os campos abaixo para editar as informações da vacina.',
                         style: FlutterFlowTheme.of(context).labelMedium,
                       ),
                     ),

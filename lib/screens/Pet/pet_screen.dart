@@ -20,6 +20,13 @@ class PetDetalhes extends StatelessWidget {
       child: Scaffold(
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         appBar: AppBar(
+          title: Text(
+            pet.name,
+            style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  fontFamily: 'Outfit',
+                  fontWeight: FontWeight.w500,
+                ),
+          ),
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
@@ -48,18 +55,13 @@ class PetDetalhes extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(24, 12, 0, 0),
                   child: Text(
-                    pet.name,
-                    style: FlutterFlowTheme.of(context).headlineMedium,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(24, 4, 0, 0),
-                  child: Text(
-                    'Informações do seu Pet',
+                    'Informações do seu Pet:',
                     textAlign: TextAlign.start,
-                    style: FlutterFlowTheme.of(context).labelMedium,
+                    style: FlutterFlowTheme.of(context)
+                        .bodyMedium
+                        .override(fontFamily: 'Outfit', fontSize: 18),
                   ),
                 ),
                 Padding(
@@ -143,8 +145,10 @@ class PetDetalhes extends StatelessWidget {
                         onTap: (() => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    VermifugoPet(petId: pet.id),
+                                builder: (context) => VermifugoPet(
+                                    petId: pet.id,
+                                    petNome: pet.name,
+                                    petSexo: pet.sexo),
                               ),
                             )),
                         child: Container(
