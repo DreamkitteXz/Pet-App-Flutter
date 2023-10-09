@@ -1,14 +1,14 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:pet_app/components/id.dart';
 import 'package:pet_app/authentication/component/show_snackbar.dart';
-import 'package:email_validator/email_validator.dart';
+import 'package:pet_app/components/id.dart';
 
 import '../Pet/home_screen.dart';
-import 'flutter_flow_icon_button.dart';
-import 'flutter_flow_theme.dart';
-import 'flutter_flow_widgets.dart';
+import 'design/icon_button.dart';
+import 'design/theme.dart';
+import 'design/widgets.dart';
 
 class RegistroPage extends StatefulWidget {
   @override

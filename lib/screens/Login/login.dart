@@ -1,14 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:pet_app/screens/create_account/regitro_page.dart';
 
 import '../../authentication/auth_login.dart';
 import '../../authentication/component/show_snackbar.dart';
 import '../Pet/home_screen.dart';
-import '../create_account/flutter_flow_theme.dart';
-import '../create_account/flutter_flow_widgets.dart';
-
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import '../create_account/design/theme.dart';
+import '../create_account/design/widgets.dart';
 
 class LoginWidget extends StatefulWidget {
   const LoginWidget({Key? key}) : super(key: key);

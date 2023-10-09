@@ -8,9 +8,9 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 
 import '../../components/id.dart';
-import '../create_account/flutter_flow_icon_button.dart';
-import '../create_account/flutter_flow_theme.dart';
-import '../create_account/flutter_flow_widgets.dart';
+import '../create_account/design/icon_button.dart';
+import '../create_account/design/theme.dart';
+import '../create_account/design/widgets.dart';
 
 class AddVacinaWidget extends StatefulWidget {
   final String? petId;
@@ -692,7 +692,6 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
 
                           String uniqueFileName =
                               DateTime.now().microsecondsSinceEpoch.toString();
-                          print("errorere");
 
                           //==============================================================
                           //Upload para o Firebase Storage
@@ -703,7 +702,6 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                               referenceRoot.child('images');
                           Reference referenceImageToUpload =
                               referenceDirRoot.child(uniqueFileName);
-                          print("erro só");
 
                           //==============================================================
                           //Tratando os erros
@@ -720,7 +718,6 @@ class _AddVacinaWidgetState extends State<AddVacinaWidget> {
                                 await referenceImageToUpload.getDownloadURL();
 
                             setState(() {});
-                            print(imageURL);
                           } catch (error) {
                             print(
                                 "Erro ao enviar a imagem para o Firebase: $error");

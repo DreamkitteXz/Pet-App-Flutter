@@ -1,14 +1,9 @@
-import 'package:pet_app/screens/Login/login.dart';
-import 'package:pet_app/screens/create_account/flutter_flow_animations.dart';
-
-import '../create_account/flutter_flow_theme.dart';
-import '/screens/create_account/flutter_flow_animations.dart';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:pet_app/screens/Login/login.dart';
+
+import '../create_account/design/animations.dart';
+import '../create_account/design/theme.dart';
 
 class WelcomePageWidget extends StatefulWidget {
   const WelcomePageWidget({Key? key}) : super(key: key);

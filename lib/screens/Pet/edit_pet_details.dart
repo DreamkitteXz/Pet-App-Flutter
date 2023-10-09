@@ -1,22 +1,12 @@
-import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:intl/intl.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:pet_app/models/vacinas.dart';
-import 'package:pet_app/screens/vacina/vacinas_screen.dart';
-import 'package:pet_app/components/data_picker.dart';
-import 'package:signature/signature.dart';
 
-import '../../components/id.dart';
 import '../../models/Pet.dart';
-import '../create_account/flutter_flow_icon_button.dart';
-import '../create_account/flutter_flow_theme.dart';
-import '../create_account/flutter_flow_widgets.dart';
+import '../create_account/design/icon_button.dart';
+import '../create_account/design/theme.dart';
+import '../create_account/design/widgets.dart';
 
 class EditPetDetails extends StatefulWidget {
   final Pet pet;

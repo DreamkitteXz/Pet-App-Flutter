@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:pet_app/screens/create_account/flutter_flow_animations.dart';
 
 import '../../models/vermifugos.dart';
-import '../create_account/flutter_flow_icon_button.dart';
-import '../create_account/flutter_flow_theme.dart';
+import '../create_account/design/animations.dart';
+import '../create_account/design/icon_button.dart';
+import '../create_account/design/theme.dart';
 
 class VermifugoWidget extends StatelessWidget {
   final Vermifugos vermifugos;

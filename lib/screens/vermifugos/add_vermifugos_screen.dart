@@ -3,12 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'package:signature/signature.dart';
-
 import '../../components/id.dart';
-import '../create_account/flutter_flow_icon_button.dart';
-import '../create_account/flutter_flow_theme.dart';
-import '../create_account/flutter_flow_widgets.dart';
+import '../create_account/design/icon_button.dart';
+import '../create_account/design/theme.dart';
+import '../create_account/design/widgets.dart';
 
 class AddVermifugoScreen extends StatefulWidget {
   final String? petId;
@@ -213,7 +211,6 @@ class _AddVermifugoScreenState extends State<AddVermifugoScreen> {
   }
 */
 
-// Generated code for this addPetCopy Widget...
         Form(
       key: _formKey,
       child: Scaffold(

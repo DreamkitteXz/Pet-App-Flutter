@@ -5,8 +5,8 @@ import 'package:pet_app/models/vermifugos.dart';
 import 'package:pet_app/screens/vermifugos/add_vermifugos_screen.dart';
 import 'package:pet_app/screens/vermifugos/vermifugos_detalhes.dart';
 
-import '../create_account/flutter_flow_icon_button.dart';
-import '../create_account/flutter_flow_theme.dart';
+import '../create_account/design/icon_button.dart';
+import '../create_account/design/theme.dart';
 
 class VermifugoPet extends StatelessWidget {
   final String? petId;

@@ -1,14 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../../components/id.dart';
-import '../create_account/flutter_flow_icon_button.dart';
-import '../create_account/flutter_flow_theme.dart';
-import '../create_account/flutter_flow_widgets.dart';
-
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import '../create_account/design/icon_button.dart';
+import '../create_account/design/theme.dart';
+import '../create_account/design/widgets.dart';
 
 class AddPetWidget extends StatefulWidget {
   const AddPetWidget({Key? key}) : super(key: key);

@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pet_app/models/Pet.dart';
-import 'package:pet_app/models/vermifugos.dart';
 
-import '../create_account/flutter_flow_icon_button.dart';
-import '../create_account/flutter_flow_theme.dart';
+import '../create_account/design/icon_button.dart';
+import '../create_account/design/theme.dart';
 import '../vacina/vacinas_screen.dart';
 import '../vermifugos/vermifugos_screen.dart';
 

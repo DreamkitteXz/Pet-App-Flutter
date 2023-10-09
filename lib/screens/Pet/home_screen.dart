@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:pet_app/models/Pet.dart';
 import 'package:pet_app/screens/Pet/pet_screen.dart';
 
+import '../create_account/design/theme.dart';
 import '../create_account/rdit_details.dart';
 import 'cadastro_pet.dart';
-import '../create_account/flutter_flow_theme.dart';
 import 'edit_pet_details.dart';
 
 class CadastroPet extends StatefulWidget {
