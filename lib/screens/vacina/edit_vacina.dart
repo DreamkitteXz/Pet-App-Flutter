@@ -642,7 +642,7 @@ class _EditVacinaScreenState extends State<EditVacinaScreen> {
                             //Guardar a imagem
 
                             await referenceImageToUpload
-                                .putFile(File(file!.path));
+                                .putFile(File(file.path));
 
                             //download url
 

@@ -9,7 +9,7 @@ import '../vermifugos/vermifugos_screen.dart';
 class PetDetalhes extends StatelessWidget {
   final Pet pet;
 
-  const PetDetalhes({required this.pet});
+  const PetDetalhes({super.key, required this.pet});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,6 @@ class PetDetalhes extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
-          actions: [],
           centerTitle: true,
           elevation: 0,
         ),
@@ -495,7 +494,7 @@ class PetDetalhes extends StatelessWidget {
                                             .fromSTEB(0, 4, 0, 0),
                                         child: Text(
                                           pet.tipo != null
-                                              ? pet.tipo!
+                                              ? pet.tipo
                                               : 'Tipo desconhecido',
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium,

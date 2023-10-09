@@ -11,7 +11,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MyApp());
+  runApp(const MyApp());
 
   //FirebaseFirestore firestore = FirebaseFirestore.instance;
   //firestore.collection('Só para testar').doc('Estou testando!').set({
@@ -20,6 +20,8 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: RoteadorTelas(),
+      home: const RoteadorTelas(),
     );
   }
 }
@@ -44,9 +46,9 @@ class RoteadorTelas extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         }
         if (snapshot.hasData) {
-          return CadastroPet();
+          return const CadastroPet();
         } else {
-          return WelcomePageWidget();
+          return const WelcomePageWidget();
         }
       },
     );
